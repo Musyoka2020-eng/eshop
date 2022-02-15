@@ -3,61 +3,69 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4>Add Category</h4>
+            <h4>Edit|Update Category</h4>
         </div>
         <div class="card-body">
-            <form action="{{ url('insert-category') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('update.category/'.$category->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group input-group-outline my-3">
                             <label class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text"  name="name" value="{{$category->name}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="input-group input-group-outline my-3">
                             <label class="form-label">Slug</label>
-                            <input type="text" name="slug" class="form-control">
+                            <input type="text" name="slug" value="{{$category->slug}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="input-group input-group-dynamic mb-4">
                             <label class="form-label">Description</label>
-                            <input type="text" name="description" class="form-control">
+                            <input type="text" name="description" value="{{$category->description}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-6 mb-3">
                         <div class="form-check">
                             <label class="custom-control-label">Status</label>
-                            <input class="form-check-input" type="checkbox" name="status">
+                            <input class="form-check-input" type="checkbox" {{$category->status =="1" ? 'checked':''}} name="status">
                         </div>
                         {{-- checked="0" --}}
                     </div>
                     <div class="col-sm-6 mb-3">
                         <div class="form-check">
                             <label class="custom-control-label">Popular</label>
-                            <input class="form-check-input" type="checkbox" name="popular">
+                            <input class="form-check-input" type="checkbox" {{$category->popular =="1" ? 'checked':''}} name="popular">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="input-group input-group-dynamic mb-4">
                             <label class="form-label">Meta Title</label>
-                            <input type="text" name="meta_title" class="form-control">
+                            <input type="text" name="meta_title" value="{{$category->meta_title}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="input-group input-group-dynamic mb-4">
                             <label class="form-label">Meta Keywords</label>
-                            <input type="text" name="meta_keywords" class="form-control">
+                            <input type="text" name="meta_keywords" value="{{$category->meta_keywords}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="input-group input-group-dynamic mb-4">
                             <label class="form-label">Meta Description</label>
-                            <input type="text" name="meta_descrip" class="form-control">
+                            <input type="text" name="meta_descrip" value="{{$category->meta_descrip}}" class="form-control">
                         </div>
                     </div>
+                    @if($category->image)
+                    <div class="col-sm-12">
+                        <div class="input-group input-group-dynamic mb-4 w-25">
+                        <img src="{{asset('assets/uploads/category/'.$category->image)}}" class="edit-image w-25 form-control" alt="Category image">
+                    </div>
+                </div>
+                    @endif
                     <div class="col-sm-6">
                         <div class="input-group input-group-dynamic mb-4">
                             <input type="file" name="image" class="form-control-file">

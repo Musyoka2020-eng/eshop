@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link href="{{ asset('admin/css/material-dashboard.css?v=3.0.0') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -43,6 +44,14 @@
     <script src="{{ asset('admin/js/smooth-scrollbar.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/chartjs.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/popper.min.js') }}" defer></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if (session('status'))
+        <script>
+            swal("Good job!", "{{session('status')}}", "success");
+        </script>
+    @endif
+
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
