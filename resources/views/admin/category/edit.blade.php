@@ -23,9 +23,10 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <div class="input-group input-group-dynamic mb-4">
-                            <label class="form-label">Description</label>
-                            <input type="text" name="description" value="{{$category->description}}" class="form-control">
+                        <label class="form-label">Description</label>
+                        <div class="input-group input-group-outline my-3">
+                            <textarea class="form-control" rows="2" placeholder="" name="description"
+                                spellcheck="false">{{$category->description}}</textarea>
                         </div>
                     </div>
                     <div class="col-sm-6 mb-3">
@@ -42,32 +43,33 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <div class="input-group input-group-dynamic mb-4">
+                        <div class="input-group input-group-outline my-3">
                             <label class="form-label">Meta Title</label>
                             <input type="text" name="meta_title" value="{{$category->meta_title}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <div class="input-group input-group-dynamic mb-4">
+                        <div class="input-group input-group-outline my-3">
                             <label class="form-label">Meta Keywords</label>
                             <input type="text" name="meta_keywords" value="{{$category->meta_keywords}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <div class="input-group input-group-dynamic mb-4">
-                            <label class="form-label">Meta Description</label>
-                            <input type="text" name="meta_descrip" value="{{$category->meta_descrip}}" class="form-control">
+                        <label class="form-label">Meta Description</label>
+                        <div class="input-group input-group-outline my-3">
+                            <textarea class="form-control" rows="2" name="meta_descrip"
+                                spellcheck="false">{{$category->meta_descrip}}</textarea>
                         </div>
                     </div>
                     @if($category->image)
                     <div class="col-sm-12">
-                        <div class="input-group input-group-dynamic mb-4 w-25">
+                        <div class="input-group input-group-outline my-3 w-25">
                         <img src="{{asset('assets/uploads/category/'.$category->image)}}" class="edit-image w-25 form-control" alt="Category image">
                     </div>
                 </div>
                     @endif
                     <div class="col-sm-6">
-                        <div class="input-group input-group-dynamic mb-4">
+                        <div class="input-group input-group-outline my-3">
                             <input type="file" name="image" class="form-control-file">
                         </div>
                     </div>

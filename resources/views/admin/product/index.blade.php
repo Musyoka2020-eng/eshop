@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4>Category Page</h4>
+            <h4>Products Page</h4>
             <hr>
         </div>
         <div class="card-body">
@@ -18,13 +18,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($category as $item)
+                    @foreach ($products as $item)
                         <tr>
                             <td>{{$item->id}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->description}}</td>
                             <td>
-                              <img src="{{asset('assets/uploads/category/'.$item->image)}}" class="cate-image" alt="Image here">
+                              <img src="{{asset('assets/uploads/products/'.$item->image)}}" class="cate-image" alt="Image here">
                             </td>
                             <td>
                                <a href="{{url('edit-prod/'.$item->id)}}"  class="btn btn-primary">Edit</a>
