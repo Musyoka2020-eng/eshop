@@ -35,7 +35,7 @@
     <div class="py-4">
         <div class="container">
             <div class="row ">
-                <h2>Trending Products</h2>
+                <h2>Trending Category</h2>
                 <div class="owl-carousel featured-carousel owl-theme">
                     @foreach ($trending_category as $tcategory)
                         <div class="item">
