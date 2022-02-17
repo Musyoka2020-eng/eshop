@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
     protected $table = 'products';
-    protected $fillable =[
+    protected $fillable = [
         'cate_id',
         'name',
         'slug',
@@ -27,4 +27,8 @@ class Product extends Model
         'meta_description',
 
     ];
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'cate_id', 'id');
+    }
 }

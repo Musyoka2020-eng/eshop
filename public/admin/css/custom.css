@@ -1,6 +1,11 @@
 .cate-image{
-    width: 100px;
+    width: 70px;
+    height: 60px;
 }
 .edit-image{
     width: 200px;
+}
+.prod-image{
+    width: 70px;
+    height: 60px;
 }
