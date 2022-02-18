@@ -1,9 +1,11 @@
 <?php
 
+// use auth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Frontend\Cartcontroller;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Frontend\FrontendController;
 
@@ -31,6 +33,13 @@ Route::get('category/{cate_slug}/{prod_slug}',[FrontendController::class, 'produ
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//    Cart controller
+Route::post('add-to-cart', [Cartcontroller::class, 'addProduct']);
+Route::post('delete-cart-item', [Cartcontroller::class, 'deleteProduct']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('cart', [Cartcontroller::class, 'viewcart']);
+});
 
  Route::middleware(['auth','isAdmin'])->group(function(){
 

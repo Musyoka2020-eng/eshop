@@ -13,27 +13,63 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('category')}}">Category</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('cart')}}">Cart</a>
+                </li>
 
-                </ul>
-                @if (Route::has('login'))
-                <div class="ms-4 navbar-nav">
+            </ul>
+            @if (Route::has('login'))
+            <div class="ms-4 navbar-nav">
                 @auth
                 <li class="nav-item">
-                    <a href="{{ url('/home') }}" class="nav-link">Dash</a>
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
+
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
+                        @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                <a class="dropdown-item" href="#">Profile</a>
+                            </div>
+                        </li>
+                        @endguest
+                    </ul>
                 </li>
 
                 @else
-                    <li class="nav-item">
-                        <a  href="{{ route('login') }}" class="nav-link">Login</a>
-                    </li>
-                    @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a href="{{ route('register') }}" class="nav-link">Register</a>
-                    </li>
-                    @endif
-                    @endauth
-                </div>
-                    @endif
+                <li class="nav-item">
+                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                </li>
+                @if (Route::has('register'))
+                <li class="nav-item">
+                    <a href="{{ route('register') }}" class="nav-link">Register</a>
+                </li>
+                @endif
+                @endauth
             </div>
+            @endif
         </div>
-    </nav>
+    </div>
+</nav>

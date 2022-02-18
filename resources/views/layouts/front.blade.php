@@ -32,6 +32,7 @@
     <style>
         a {
             text-decoration: none !important;
+            color: black;
         }
     </style>
 
@@ -46,6 +47,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>

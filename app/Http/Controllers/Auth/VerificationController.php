@@ -26,7 +26,11 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected function authenticated()
+    {
+            return redirect('/')->with('status','Email verification successfully');
+    }
 
     /**
      * Create a new controller instance.

@@ -6,7 +6,14 @@
 @section('content')
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container">
-        <h6 class="mb-0">Collections / {{$category->name}} </h6>
+        <h6 class="mb-0">
+            <a href="{{url('category')}}">
+                Collections
+            </a>/
+            <a href="{{url('view-category/'.$category->slug)}}">
+                {{$category->name}}
+            </a>
+         </h6>
     </div>
 </div>
 
