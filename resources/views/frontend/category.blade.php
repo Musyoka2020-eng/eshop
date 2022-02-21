@@ -4,6 +4,19 @@ Category
 @endsection
 
 @section('content')
+<div class="py-3 mb-4 shadow-sm bg-warning border-top">
+    <div class="container">
+        <h6 class="mb-0">
+            <a href="{{url('/')}}">
+                Home
+            </a>/
+            <a href="{{url('category')}}">
+                Collection
+            </a>
+        </h6>
+    </div>
+</div>
+
 <div class="py-5">
     <div class="container">
         <div class="row">
@@ -16,7 +29,7 @@ Category
                             <div class="card">
                                 <img src="{{asset('assets/uploads/category/' .$cate->image) }}" class="tred"
                                     alt="Category image">
-                                <div class="card-body">'
+                                <div class="card-body">
                                     <h5>{{ $cate->name }}</h5>
                                     <p>
                                         {{ $cate->description }}

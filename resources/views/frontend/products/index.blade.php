@@ -7,6 +7,9 @@
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container">
         <h6 class="mb-0">
+            <a href="{{url('/')}}">
+                Home
+            </a>/
             <a href="{{url('category')}}">
                 Collections
             </a>/
@@ -26,10 +29,10 @@
                 <div class="card">
                     <a href="{{url('category/'.$category->slug.'/'.$prod->slug) }}">
                     <img src="{{ asset('assets/uploads/products/' . $prod->image) }}" class="tred" alt="Product image">
-                    <div class="card-body">'
+                    <div class="card-body">
                         <h5>{{ $prod->name }}</h5>
-                        <span class="float-start">{{ $prod->selling_price }}</span>
-                        <span class="float-end"><s>{{ $prod->original_price }}</s></span>
+                        <span class="float-start"> Ksh {{ $prod->selling_price }}</span>
+                        <span class="float-end"><s> Ksh{{ $prod->original_price }}</s></span>
                     </div>
                 </a>
                 </div>

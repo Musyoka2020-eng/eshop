@@ -5,15 +5,18 @@
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container">
         <h6 class="mb-0">
-           <a href="{{url('category')}}">
-            Collections
-        </a> /
-        <a href="{{url('view-category/'.$products->category->slug)}}">
-            {{$products->category->name}}
-        </a>/
-        <a href="{{url('category/'.$products->category->slug.'/'.$products->slug)}}">
-            {{$products->name}}
-        </a>
+            <a href="{{url('/')}}">
+                Home
+            </a> /
+            <a href="{{url('category')}}">
+                Collections
+            </a> /
+            <a href="{{url('view-category/'.$products->category->slug)}}">
+                {{$products->category->name}}
+            </a>/
+            <a href="{{url('category/'.$products->category->slug.'/'.$products->slug)}}">
+                {{$products->name}}
+            </a>
         </h6>
     </div>
 </div>
@@ -51,20 +54,19 @@
                             <label for="Quantity">Quantity</label>
                             <div class="input-group text-center mb-3">
                                 <button class="input-group-text decrement-btn">-</button>
-                                {{-- <div class="col-4"> --}}
-                                    <input type="text" name="quantity" value="1"
-                                        class="form-control w-10 text-center qty-input">
-                                    {{--
-                                </div> --}}
+                                <input type="text" name="quantity" value="1"
+                                    class="form-control w-10 text-center qty-input">
                                 <button class="input-group-text increment-btn">+</button>
                             </div>
                         </div>
                         <div class="col-md-9">
                             <br>
-                            <button type="button" class="btn btn-success  me-3 float-start">Add to Wishlist <i
-                                    class="fa-solid fa-heart"></i></button>
+                            @if ($products->qty > 0)
                             <button type="button" class="btn btn-primary addToCartBtn me-3 float-start">Add to Cart <i
-                                    class="fa-solid fa-cart-plus"></i></button>
+                                class="fa-solid fa-cart-plus"></i></button>
+                            @endif
+                            <button type="button" class="btn btn-success addtowishlist  me-3 float-start">Add to Wishlist <i
+                                    class="fa-solid fa-heart"></i></button>
                         </div>
                     </div>
                 </div>

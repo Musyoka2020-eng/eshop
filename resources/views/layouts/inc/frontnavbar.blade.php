@@ -8,14 +8,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{url('category')}}">Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('cart')}}">Cart</a>
+                    <a class="nav-link" href="{{url('wishlist')}}">Wishlist
+                        <span class="badge badge-pill bg-primary wishlist-count">0</span>
+                    </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('cart')}}">Cart
+                    <span class="badge badge-pill bg-success cart-count">0</span>
+                    </a>
+                </li>
+
 
             </ul>
             @if (Route::has('login'))
@@ -51,7 +56,7 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="{{url('my-orders')}}">Profile</a>
                             </div>
                         </li>
                         @endguest

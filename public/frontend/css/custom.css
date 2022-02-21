@@ -1,19 +1,37 @@
-*{
-    font-family: 'Roboto', sans-serif;
+* {
+    font-family: "Roboto", sans-serif;
 }
-.hcar{
+.hcar {
     height: 300px;
+    width: 250px;
 }
-.tred{
+.tred {
     height: 150px;
+    width: 250px;
 }
-.cartim{
+.cartim {
     height: 250px;
     width: 250px;
     margin-left: 70px;
 }
-.cartim2{
+.cartim2 {
     height: 70px;
     width: 70px;
     margin-left: 70px;
+}
+.checkout-form label {
+    font-size: 12px;
+    font-weight: 700;
+}
+.checkout-form input {
+    font-size: 14px;
+    padding: 5px;
+    font-weight: 400;
+}
+.order-details label {
+    font-size: 14px;
+    font-weight: 700;
+}
+.order-details div {
+    font-size: 15px;
 }

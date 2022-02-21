@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Product;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        $featured_products = Product::where('trending','1')->take(15)->get();
-        $trending_category = Category::where('popular','1' AND 'status','0')->take(15)->get();
+        $featured_products = Product::where('trending', '1')->take(15)->get();
+        $trending_category = Category::where('popular', '1')->where('status', '0')->take(15)->get();
         return view('frontend.index', compact('featured_products', 'trending_category'));
+
 
     }
     public function category()
@@ -23,36 +23,39 @@ class FrontendController extends Controller
     }
     public function viewcategory($slug)
     {
-        if(Category::where('slug', $slug)->exists())
-        {
-        $category = Category::where('slug', $slug)->first();
-        $products = Product::where('cate_id', $category->id)->where('status','0')->get();
-        return view('frontend.products.index', compact('category', 'products'));
+        if (Category::where('slug', $slug)->exists()) {
+            $category = Category::where('slug', $slug)->first();
+            $products = Product::where('cate_id', $category->id)->where('status', '0')->get();
+            return view('frontend.products.index', compact('category', 'products'));
 
-        }
-        else
-        {
+        } else {
             return redirect('/')->with('status', "Slug Does not Exists");
         }
     }
     public function productview($cate_slug, $prod_slug)
     {
-        if(Category::where('slug', $cate_slug)->exists())
-        {
-            if(Product::where('slug', $prod_slug)->exists())
-            {
-$products = Product::where('slug', $prod_slug)->first();
-return view('frontend.products.view', compact('products'));
+        if (Category::where('slug', $cate_slug)->exists()) {
+            if (Product::where('slug', $prod_slug)->exists()) {
+                $products = Product::where('slug', $prod_slug)->first();
+                return view('frontend.products.view', compact('products'));
 
+            } else {
+                return redirect('/')->with('status', "Link was broken, try again later");
             }
-            else
-            {
-            return redirect('/')->with('status', "Link was broken, try again later");
-            }
-        }
-        else
-        {
+        } else {
             return redirect('/')->with('status', "Category does not exist");
         }
+    }
+    public function productview2($prod_slug)
+    {
+
+            if (Product::where('slug', $prod_slug)->exists()) {
+                $products = Product::where('slug', $prod_slug)->first();
+                return view('frontend.products.view', compact('products'));
+
+            } else {
+                return redirect('/')->with('status', "Link was broken, try again later");
+            }
+
     }
 }
