@@ -1,4 +1,8 @@
 @extends('layouts.admin')
+
+@section('title')
+Admin:Orders
+@endsection
 @section('content')
 <div class="container">
     <div class="row">

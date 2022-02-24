@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title')
+   Admin:Users
+@endsection
 @section('content')
 <div class="container">
     <div class="row">
@@ -36,7 +38,7 @@
                         <div class="col-md-4 mt-3">
                             <label for="">Address</label>
                             <div class="p-2 border">
-                                {{$users->address1}}, 
+                                {{$users->address1}},
                                 {{$users->address2}}
                             </div>
                         </div>

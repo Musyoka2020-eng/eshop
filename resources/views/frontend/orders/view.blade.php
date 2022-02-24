@@ -4,7 +4,7 @@ My order
 @endsection
 
 @section('content')
-<div class="py-3 mb-4 shadow-sm bg-warning border-top">
+<div class="py-3 mb-1 shadow-sm bg-warning border-top">
     <div class="container">
         <h6 class="mb-0">
             <a href="{{url('/')}}">
@@ -20,7 +20,7 @@ My order
     </div>
 </div>
 
-<div class="container-fluid py-5">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -81,8 +81,8 @@ My order
 
                                 </tbody>
                             </table>
-                            <h4 class="px-2">Grand Total: <span class="float-end"> Ksh {{$orders->total_price}}</span>
-                            </h4>
+                            <h6 class="px-2">Grand Total: <span class="float-end"> Ksh {{$orders->total_price}}</span></h6>
+                            <h6 class="px-2">Payment Mode:{{$orders->payment_mode}}</h6>
                         </div>
                     </div>
 

@@ -20,4 +20,10 @@ class UserController extends Controller
         $orders = Order::where('id', $id)->where('user_id', Auth::id())->first();
         return view('frontend.orders.view', compact('orders'));
     }
+    public function delete($id)
+    {
+        $orders = Order::find($id);
+        $orders->delete();
+        return redirect('frontend.orders.index')->with('status',"Order Deleted Successfully");
+    }
 }

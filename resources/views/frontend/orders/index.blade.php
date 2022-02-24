@@ -5,7 +5,7 @@ My orders
 
 @section('content')
 
-<div class="py-3 mb-4 shadow-sm bg-warning border-top">
+<div class="py-3 mb-1 shadow-sm bg-warning border-top">
     <div class="container">
         <h6 class="mb-0">
             <a href="{{url('/')}}">
@@ -18,7 +18,7 @@ My orders
     </div>
 </div>
 
-<div class="container-fluid py-5">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -31,6 +31,7 @@ My orders
                         <thead>
                             <tr>
                                 <th>Tracking Number</th>
+                                <th>Date</th>
                                 <th>Total Price</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -41,10 +42,12 @@ My orders
                             @foreach ($orders as $item)
                             <tr>
                                 <td>{{ $item->tracking_no}}</td>
+                                <td>{{ $item->updated_at->format('d M Y ')}}</td>
                                 <td> Ksh {{ $item->total_price}}</td>
                                 <td>{{ $item->status == '0'? 'Pending': 'Completed'}}</td>
                                 <td>
                                     <a href="{{ url('view-order/'.$item->id) }}" class="btn btn-primary">View</a>
+                                    {{-- <a href="{{ url('delete-order/'.$item->id) }}" class="btn btn-danger">delete</a> --}}
                                 </td>
                             </tr>
                             @endforeach

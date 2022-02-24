@@ -17,7 +17,9 @@ class CheckoutController extends Controller
     {
         $old_cartitems = Cart::where('user_id', Auth::id())->get();
         foreach ($old_cartitems as $item) {
-            if (!Product::where('id', $item->prod_id)->where('qty', '>=', $item->prod_qty)->exists()) {
+            if (!Product::where('id', $item->prod_id)->where('qty', '>=', $item->prod_qty)->exists())
+            {
+
                 $removeItem = Cart::where('user_id', Auth::id())->where('prod_id', $item->prod_id)->first();
                 $removeItem->delete();
 
@@ -41,6 +43,8 @@ class CheckoutController extends Controller
         $order->state = $request->input('state');
         $order->country = $request->input('country');
         $order->pincode = $request->input('pincode');
+        $order->payment_mode = $request->input('payment_mode');
+        $order->payment_id = $request->input('payment_id');
 
         $total= 0;
         $cartitems_total = Cart::where('user_id', Auth::id())->get();
@@ -83,6 +87,10 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('user_id', Auth::id())->get();
         Cart::destroy($cartitems);
 
+        if ($request->input('payment_mode') == "Paid by Razorpay" || $request->input('payment_mode') == "Paid by Paypal" )
+        {
+            return response()->json(['status' => "Order Place Succesfully"]);
+        }
         return redirect('/')->with('status', "Order Place Succesfully");
     }
 
@@ -94,16 +102,17 @@ class CheckoutController extends Controller
            $total_price += $item->products->selling_price * $item->prod_qty;
         }
 
-        $fname = $request->input('$fname');
-        $lname = $request->input('$lname');
-        $email = $request->input('$email');
-        $phone = $request->input('$phone');
-        $address1 = $request->input('$address1');
-        $address2 = $request->input('$address2');
-        $city = $request->input('$city');
-        $state = $request->input('$state');
-        $country = $request->input('$country');
-        $pincode = $request->input('$pincode');
+        $fname = $request->input('fname');
+        $lname = $request->input('lname');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $address1 = $request->input('address1');
+        $address2 = $request->input('address2');
+        $city = $request->input('city');
+        $state = $request->input('state');
+        $country = $request->input('country');
+        $pincode = $request->input('pincode');
+
 
         return response()->json([
 

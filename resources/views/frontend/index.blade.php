@@ -1,6 +1,6 @@
 @extends('layouts.front')
 @section('title')
-    E-shop
+    Outlets Electronics
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
                     @foreach ($featured_products as $prod)
                         <div class="item">
                             <div class="card">
-                                <a href="{{url('category/'.$prod->slug)}}">
+                                <a href="{{url('category/'.$prod->category->slug.'/'.$prod->slug)}}">
                                 <img src="{{ asset('assets/uploads/products/' . $prod->image) }}" class="tred"
                                     alt="Product image">
                                 <div class="card-body">
