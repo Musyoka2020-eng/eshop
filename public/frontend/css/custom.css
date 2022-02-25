@@ -67,3 +67,15 @@
 }
 
 /* End of Star Rating */
+.search-bar{
+    width: 30%;
+    margin-left: 5%;
+}
+.ui-menu{
+    z-index: 3500 !important;
+}
+.whatsapp-chat{
+    bottom: 10px;
+    left: 10px;
+    position: fixed;
+}

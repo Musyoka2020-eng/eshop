@@ -90,7 +90,8 @@ $(document).ready(function () {
         });
     });
 
-    $(".increment-btn").click(function (e) {
+    $(document).on('click','.increment-btn', function (e) {
+
         e.preventDefault();
 
         var inc_value = $(this)
@@ -105,7 +106,8 @@ $(document).ready(function () {
         }
     });
 
-    $(".decrement-btn").click(function (e) {
+    $(document).on('click','.decrement-btn', function (e) {
+
         e.preventDefault();
 
         var dec_value = $(this)
@@ -120,7 +122,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".delete-cart-item").click(function (e) {
+    $(document).on('click','.delete-cart-item', function (e) {
         e.preventDefault();
 
         var prod_id = $(this).closest(".product_data").find(".prod_id").val();
@@ -131,13 +133,16 @@ $(document).ready(function () {
                 prod_id: prod_id,
             },
             success: function (response) {
-                window.location.reload();
+                // window.location.reload();
+                loadcart();
+              $('.cartitems').load(location.href + " .cartitems");
                 swal("", response.status, "success");
             },
         });
     });
 
-    $(".remove-wishlist-item").click(function (e) {
+    $(document).on('click','.remove-wishlist-item', function (e) {
+
         e.preventDefault();
 
         var prod_id = $(this).closest(".product_data").find(".prod_id").val();
@@ -148,13 +153,16 @@ $(document).ready(function () {
                 prod_id: prod_id,
             },
             success: function (response) {
-                window.location.reload();
+                // window.location.reload();
+              loadwishlist();
+              $('.wishlistitems').load(location.href + " .wishlistitems");
                 swal("", response.status, "success");
             },
         });
     });
 
-    $(".changeQuantity").click(function (e) {
+    $(document).on('click','.changeQuantity', function (e) {
+
         e.preventDefault();
 
         $.ajaxSetup({
@@ -175,7 +183,8 @@ $(document).ready(function () {
             url: "update-cart",
             data: data,
             success: function (response) {
-                window.location.reload();
+                // window.location.reload();
+              $('.cartitems').load(location.href + " .cartitems");
             },
         });
     });

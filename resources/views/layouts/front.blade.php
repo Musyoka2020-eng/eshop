@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- Nucleo Icons -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/90799b4287.js" crossorigin="anonymous"></script>
@@ -45,6 +46,12 @@
         @yield('content')
     </div>
 
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/+254705092528?text=I'm%20interested%20in%20your%20products%20of%20sale" target="_blank">
+            <img src="{{asset('assets/images/whatsapp.icon.jpg')}}" alt="whatsapp-logo" height="50px" width="50px">
+        </a>
+    </div>
+
     <!-- Scripts -->
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
@@ -53,6 +60,39 @@
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
 
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6217e7ae1ffac05b1d7b97ee/1fsmm7t3j';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        var availableTags = [];
+          $.ajax({
+              type: "GET",
+              url: "/product-list",
+              success: function (response) {
+                //   console.log(response);
+                  startAutoComplete(response);
+              }
+          });
+
+          function startAutoComplete(availableTags){
+            $( "#search_product" ).autocomplete({
+            source: availableTags
+          });
+          }
+
+    </script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (session('status'))

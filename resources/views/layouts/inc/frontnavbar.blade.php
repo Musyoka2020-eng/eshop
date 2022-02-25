@@ -1,6 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">Outlet's Electronic</a>
+
+        <div class="search-bar">
+            <form action="{{url('searchproduct')}}" method="POST">
+                @csrf
+                <div class="input-group">
+                    <input type="search" class="form-control" name="product_name" id="search_product" placeholder="Search products"
+                 aria-describedby="basic-addon1">
+                    <button type="submit" class="input-group-text"><i class="fa-solid fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,7 +30,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('cart')}}">Cart
-                    <span class="badge badge-pill bg-success cart-count">0</span>
+                        <span class="badge badge-pill bg-success cart-count">0</span>
                     </a>
                 </li>
 

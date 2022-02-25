@@ -18,7 +18,7 @@ My Cart
     </div>
 </div>
 
-<div class="container my-5">
+<div class="container my-5 cartitems">
     <div class="card shadow ">
         @if ($cartItems->count() > 0)
         <div class="card-body">

@@ -160,8 +160,9 @@ $(document).ready(function () {
 
                                 },
                                 success: function (responseb) {
-                                    swal (responseb.status);
-                                    window.location.href = "/my-orders";
+                                    swal (responseb.status).then((value) => {
+                                        window.location.href = "/my-orders";
+                                      });
                                 }
                             });
                         },

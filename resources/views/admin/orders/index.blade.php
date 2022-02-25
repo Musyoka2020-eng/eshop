@@ -19,6 +19,7 @@ Admin:Orders
                             <thead>
                                 <tr>
                                     <th>Tracking Number</th>
+                                    <th>Date</th>
                                     <th>Total Price</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -29,6 +30,7 @@ Admin:Orders
                                 @foreach ($orders as $item)
                                 <tr>
                                     <td>{{ $item->tracking_no}}</td>
+                                    <td>{{ $item->created_at->format('d M Y')}}</td>
                                     <td> Ksh {{ $item->total_price}}</td>
                                     <td>{{ $item->status == '0'? 'Pending': 'Completed'}}</td>
                                     <td>

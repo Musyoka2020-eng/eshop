@@ -17,13 +17,12 @@
                 <div class="modal-body">
                     <div class="rating-css">
                         <div class="star-icon">
-                            @foreach( $user_rating as $item )
-                                @if($item)
-                                @for($i = 1; $i <= $item->stars_rated; $i++)
+                                @if($user_rating)
+                                @for($i = 1; $i <= $user_rating->stars_rated; $i++)
                                     <input type="radio" value="{{$i}}" name="product_rating" checked id="rating{{$i}}">
                                     <label for="rating{{$i}}" class="fa fa-star"></label>
                                 @endfor
-                                @for($j = $item->stars_rated+1; $j <= 5; $j++)
+                                @for($j = $user_rating->stars_rated+1; $j <= 5; $j++)
                                     <input type="radio" value="{{$j}}" name="product_rating" id="rating{{$j}}">
                                     <label for="rating{{$j}}" class="fa fa-star"></label>
                                  @endfor
@@ -41,7 +40,6 @@
                                     <label for="rating5" class="fa fa-star"></label>
 
                                  @endif
-                                    @endforeach
 
                         </div>
                     </div>
@@ -94,14 +92,18 @@
                     <label class="fw-bold">Selling Price : Ksh {{$products->selling_price}}</label>
                     @php $ratenum = number_format($rating_value) @endphp
                     <div class="rating">
-                        @if($ratings->count() <= 0) @else @for($i=1; $i<=$ratenum; $i++) <i class="fa-solid fa-star checked"></i>
-                            @endfor
-                            @for($j = $ratenum+1; $j <= 5; $j++) <i class="fa-solid fa-star"></i>
-                                @endfor
-                                @endif
+                        @for($i=1; $i<=$ratenum; $i++)
+                        <i class="fa-solid fa-star checked"></i>
+                        @endfor
+                        @for($j = $ratenum+1; $j <= 5; $j++)
+                        <i class="fa-solid fa-star"></i>
+                        @endfor
                                 <span class="fw-bold fst-italic">
-                                    @if($ratings->count() <= 0) No Rating @else {{$ratings->count()}} Ratings
-                                        @endif
+                                    @if($ratings->count() > 0)
+                                    {{$ratings->count()}} Ratings
+                                    @else
+                                    No Rating
+                                     @endif
                                 </span>
                     </div>
                     <p class="mt-3">
@@ -109,9 +111,9 @@
                     </p>
                     <hr>
                     @if ($products->qty > 0)
-                    <lable class="badge bg-success">In stock</lable>
+                    <label for="" class="badge bg-success">In stock</label>
                     @else
-                    <lable class="badge bg-danger">Out of stock</lable>
+                    <label class="badge bg-danger">Out of stock</label>
                     @endif
                     <div class="row mt-2">
                         <div class="col-md-3">
@@ -156,8 +158,9 @@
                             @foreach ($reviews as $item)
                             <label for="">{{ $item->user->name.' '.$item->user->lname }}</label>
                             @if ($item->user_id == Auth::id())
-                            <a href="{{url('edit-review/'.$products->slug.'/userreview')}}">Edit</a><br>
+                            <a href="{{url('edit-review/'.$products->slug.'/userreview')}}">Edit</a>
                             @endif
+                            <br>
                             @php
                                 $rating = App\Models\Rating::where('prod_id', $products->id)->where('user_id',$item->user->id)->first();
                             @endphp

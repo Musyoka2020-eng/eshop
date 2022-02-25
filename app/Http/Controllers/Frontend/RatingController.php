@@ -26,7 +26,6 @@ class RatingController extends Controller
 
                 $existing_rating = Rating::where('user_id', Auth::id())->where('prod_id', $product_id)->first();
                 if ($existing_rating) {
-
                     $existing_rating->stars_rated = $stars_rated;
                     $existing_rating->update();
 

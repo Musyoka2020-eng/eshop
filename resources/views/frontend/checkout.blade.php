@@ -102,7 +102,7 @@ Checkout
                             <hr>
                             @if ($cartitems->count() > 0)
                             <table class="table table-striped table-bordered">
-                                @php $total = 0;@endphp
+                                {{-- @php $total = 0;@endphp --}}
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -117,11 +117,11 @@ Checkout
                                         <td>{{$item->prod_qty}}</td>
                                         <td> Ksh {{$item->products->selling_price}}</td>
                                     </tr>
-                                    @php $total += $item->products->selling_price*$item->prod_qty; @endphp
+                                    {{-- @php $total += $item->products->selling_price*$item->prod_qty; @endphp --}}
                                     @endforeach
                                 </tbody>
                             </table>
-                            <h6 class="px-2">Grand Total <span class="float-end">Ksh {{$total}}</span>
+                            {{-- <h6 class="px-2">Grand Total <span class="float-end">Ksh {{$total}}</span> --}}
                             </h6>
                             <hr>
                             <input type="hidden" name="payment_mode" value="COD">
@@ -155,13 +155,13 @@ Checkout
 </script>
 
 <script>
-paypal.Buttons({
+    paypal.Buttons({
 createOrder: function(data, actions) {
     // This function sets up the details of the transaction, including the amount and line item details.
     return actions.order.create({
       purchase_units: [{
         amount: {
-          value: '{{$total}}'
+          value: '1'
         }
       }]
     });
@@ -202,10 +202,14 @@ createOrder: function(data, actions) {
             'payment_id':details.id,
 
         },
-        success: function (response) {
-        swal (response.status);
-        window.location.href = "/my-orders";
+        success: function (response)
+         {
+           swal (response.status)
+           .then((value)=> {
+             window.location.href = "/my-orders";
+          });
         }
+
         });
     });
   }

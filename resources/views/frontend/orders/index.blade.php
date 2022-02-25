@@ -42,7 +42,7 @@ My orders
                             @foreach ($orders as $item)
                             <tr>
                                 <td>{{ $item->tracking_no}}</td>
-                                <td>{{ $item->updated_at->format('d M Y ')}}</td>
+                                <td>{{ $item->created_at->format('d M Y ')}}</td>
                                 <td> Ksh {{ $item->total_price}}</td>
                                 <td>{{ $item->status == '0'? 'Pending': 'Completed'}}</td>
                                 <td>

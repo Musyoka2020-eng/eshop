@@ -35,6 +35,10 @@ Route::get('category', [FrontendController::class, 'category']);
 Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
 Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
+
+Route::get('product-list', [FrontendController::class, 'productlistAjax']);
+Route::post('searchproduct', [FrontendController::class, 'searchproduct']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -57,7 +61,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('proceed-to-pay', [CheckoutController::class, 'razorpaycheck']);
 
     Route::post('add-rating', [RatingController::class, 'add']);
-    
+
     Route::get('add-review/{product_slug}/userreview', [ReviewController::class, 'add']);
     Route::get('edit-review/{products_slug}/userreview', [ReviewController::class, 'edit']);
     Route::post('add-review', [ReviewController::class, 'create']);

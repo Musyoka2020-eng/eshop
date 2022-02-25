@@ -5,9 +5,5 @@
 @endsection
 
 @section('content')
-<div class="card">
-    <div class="card-body">
-        <h1>Steve codes</h1>
-    </div>
-</div>
+@include('layouts.inc.admindash')
 @endsection
