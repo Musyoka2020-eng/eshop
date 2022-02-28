@@ -17,17 +17,20 @@ class CheckoutController extends Controller
     {
         $old_cartitems = Cart::where('user_id', Auth::id())->get();
         foreach ($old_cartitems as $item) {
-            if (!Product::where('id', $item->prod_id)->where('qty', '>=', $item->prod_qty)->get())
-            {
+            if (!Product::where('id', $item->prod_id)->where('qty', '>=', $item->prod_qty)->exists()) {
 
-                $removeItem = Cart::where('user_id', Auth::id())->where('prod_id', $item->prod_id)->exists();
+                $removeItem = Cart::where('user_id', Auth::id())->where('prod_id', $item->prod_id)->first();
                 $removeItem->delete();
 
             }
         }
 
         $cartitems = Cart::where('user_id', Auth::id())->get();
-        return view('frontend.checkout', compact('cartitems'));
+        $total = 0;
+        foreach ($cartitems as $item) {
+            $total += $item->products->selling_price * $item->prod_qty;
+        }
+        return view('frontend.checkout', compact('cartitems', 'total'));
     }
     public function placeorder(Request $request)
     {
@@ -46,10 +49,10 @@ class CheckoutController extends Controller
         $order->payment_mode = $request->input('payment_mode');
         $order->payment_id = $request->input('payment_id');
 
-        $total= 0;
+        $total = 0;
         $cartitems_total = Cart::where('user_id', Auth::id())->get();
         foreach ($cartitems_total as $prod) {
-           $total += $prod->products->selling_price;
+            $total += $prod->products->selling_price;
         }
         $order->total_price = $total;
         $order->tracking_no = 'steve' . rand(1111, 9999);
@@ -87,8 +90,7 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('user_id', Auth::id())->get();
         Cart::destroy($cartitems);
 
-        if ($request->input('payment_mode') == "Paid by Razorpay" || $request->input('payment_mode') == "Paid by Paypal" )
-        {
+        if ($request->input('payment_mode') == "Paid by Razorpay" || $request->input('payment_mode') == "Paid by Paypal") {
             return response()->json(['status' => "Order Place Succesfully"]);
         }
         return redirect('/')->with('status', "Order Place Succesfully");
@@ -99,7 +101,7 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('user_id', Auth::id())->get();
         $total_price = 0;
         foreach ($cartitems as $item) {
-           $total_price += $item->products->selling_price * $item->prod_qty;
+            $total_price += $item->products->selling_price * $item->prod_qty;
         }
 
         $fname = $request->input('fname');
@@ -113,20 +115,19 @@ class CheckoutController extends Controller
         $country = $request->input('country');
         $pincode = $request->input('pincode');
 
-
         return response()->json([
 
-                'fname'=>$fname,
-                'lname'=>$lname,
-                'email'=>$email,
-                'phone'=>$phone,
-                'address1'=>$address1,
-                'address2'=>$address2,
-                'city'=>$city,
-                'state'=>$state,
-                'country'=>$country,
-                'pincode'=>$pincode,
-                'total_price'=> $total_price,
+            'fname' => $fname,
+            'lname' => $lname,
+            'email' => $email,
+            'phone' => $phone,
+            'address1' => $address1,
+            'address2' => $address2,
+            'city' => $city,
+            'state' => $state,
+            'country' => $country,
+            'pincode' => $pincode,
+            'total_price' => $total_price,
 
         ]);
     }

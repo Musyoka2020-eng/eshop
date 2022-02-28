@@ -2,8 +2,37 @@
     font-family: "Roboto", sans-serif;
 }
 .hcar {
-    height: 300px;
+    height: 400px;
     width: 250px;
+}
+.custom {
+    color: #06ebf3;
+    background-color: rgba(29, 26, 34, 0.548);
+    height: 200px;
+    margin: 0;
+    font-weight: 700;
+    font-size: large;
+    font-style: italic;
+}
+.b-example-divider {
+    flex-shrink: 0;
+    width: 1rem;
+    height: auto;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
+}
+div{
+    display: block;
+}
+main {
+    display: flex;
+    flex-wrap: nowrap;
+    height: auto;
+    height: -webkit-fill-available;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 .tred {
     height: 150px;
@@ -35,9 +64,8 @@
 .order-details div {
     font-size: 15px;
 }
-.checked{
+.checked {
     color: #ffe400;
-
 }
 
 /* rating */
@@ -50,6 +78,16 @@
     text-transform: uppercase;
     padding: 20px 0;
 }
+#sidebar-nav {
+    width: 200px;
+}
+.goods{
+    top: 0;
+    position: fixed;
+}
+/* .fio{
+    background-color: rgba(98, 98, 165, 0.692);
+} */
 .rating-css input {
     display: none;
 }
@@ -67,14 +105,14 @@
 }
 
 /* End of Star Rating */
-.search-bar{
+.search-bar {
     width: 30%;
     margin-left: 5%;
 }
-.ui-menu{
+.ui-menu {
     z-index: 3500 !important;
 }
-.whatsapp-chat{
+.whatsapp-chat {
     bottom: 10px;
     left: 10px;
     position: fixed;

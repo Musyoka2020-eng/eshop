@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-   Home Login
+Outlet's Login
 @endsection
 
 @section('content')

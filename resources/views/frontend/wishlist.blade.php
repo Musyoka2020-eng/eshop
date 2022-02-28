@@ -1,6 +1,6 @@
 @extends('layouts.front')
 @section('title')
-My Cart
+Wishlist
 @endsection
 
 @section('content')

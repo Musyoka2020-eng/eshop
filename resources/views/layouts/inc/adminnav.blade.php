@@ -22,7 +22,7 @@
                             <a href="#" class="btn bg-gradient-secondary btn-icon btn-2 dropdown-toggle " data-bs-toggle="dropdown"
                                 id="navbarDropdownMenuLink2">
                                 <i class="fa-solid fa-user fa-fade"></i>
-                                <span class="d-sm-inline d-none">Sign In</span>
+                                <span class="d-sm-inline d-none">{{ Auth::user()->name }}</span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                                 <li>

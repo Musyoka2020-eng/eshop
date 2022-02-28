@@ -15,8 +15,9 @@ class FrontendController extends Controller
     public function index()
     {
         $featured_products = Product::where('trending', '1')->take(15)->get();
+        $rated_products = Rating::where('stars_rated','>=',' 1')->take(15)->get();
         $trending_category = Category::where('popular', '1')->where('status', '0')->take(15)->get();
-        return view('frontend.index', compact('featured_products', 'trending_category'));
+        return view('frontend.index', compact('featured_products', 'trending_category','rated_products'));
 
 
     }

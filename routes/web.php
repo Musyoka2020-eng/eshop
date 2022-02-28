@@ -68,10 +68,18 @@ Route::middleware(['auth'])->group(function () {
     Route::put('update-review', [ReviewController::class, 'update']);
 
     Route::get('my-orders', [UserController::class, 'index']);
+
     Route::get('view-order/{id}', [UserController::class, 'view']);
     Route::get('delete-order/{id}', [UserController::class, 'delete']);
 
     Route::get('wishlist', [WishlistController::class, 'index']);
+
+
+    Route::get('myprofile/{name}', [UserController::class, 'viewprofile']);
+    Route::get('user', [UserController::class, 'profile']);
+    Route::put('updateprofile', [UserController::class, 'update']);
+
+
 
 
 });

@@ -24,6 +24,7 @@ My orders
             <div class="card">
                 <div class="card-header text-center bg-primary">
                     <h4 class="text-white">My Orders
+                    <a href="{{url('user')}}" class="btn btn-outline-secondary btn-sm float-end">Dashboard</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -47,7 +48,8 @@ My orders
                                 <td>{{ $item->status == '0'? 'Pending': 'Completed'}}</td>
                                 <td>
                                     <a href="{{ url('view-order/'.$item->id) }}" class="btn btn-primary">View</a>
-                                    {{-- <a href="{{ url('delete-order/'.$item->id) }}" class="btn btn-danger">delete</a> --}}
+                                    {{-- <a href="{{ url('delete-order/'.$item->id) }}"
+                                        class="btn btn-danger">delete</a> --}}
                                 </td>
                             </tr>
                             @endforeach

@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-    <div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top pt-0">
+    <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">Outlet's Electronic</a>
 
-        <div class="search-bar">
+        <div class="search-bar mb-0">
             <form action="{{url('searchproduct')}}" method="POST">
                 @csrf
                 <div class="input-group">
@@ -62,10 +62,10 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{url('my-orders')}}">My Orders</a>
-                                <a class="dropdown-item" href="{{url('#')}}">Profile</a>
+                                <a class="dropdown-item" href="{{url('my-orders')}}"> <span><i class="fa-solid fa-list"></i></span>  My Orders</a>
+                                <a class="dropdown-item" href="{{url('user')}}"><span><i class="fa-solid fa-dashboard"></i></span>  Dashboard </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                       document.getElementById('logout-form').submit();">
+                                       document.getElementById('logout-form').submit();"><span><i class="fa-solid fa-sign-out"></i></span>
                                     {{ __('Logout') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

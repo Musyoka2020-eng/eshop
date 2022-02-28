@@ -102,7 +102,6 @@ Checkout
                             <hr>
                             @if ($cartitems->count() > 0)
                             <table class="table table-striped table-bordered">
-                                {{-- @php $total = 0;@endphp --}}
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -117,11 +116,10 @@ Checkout
                                         <td>{{$item->prod_qty}}</td>
                                         <td> Ksh {{$item->products->selling_price}}</td>
                                     </tr>
-                                    {{-- @php $total += $item->products->selling_price*$item->prod_qty; @endphp --}}
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{-- <h6 class="px-2">Grand Total <span class="float-end">Ksh {{$total}}</span> --}}
+                            <h6 class="px-2">Grand Total <span class="float-end">Ksh {{$total}}</span>
                             </h6>
                             <hr>
                             <input type="hidden" name="payment_mode" value="COD">
@@ -129,10 +127,10 @@ Checkout
                             <button type="button" class="btn btn-primary w-100 mt-3 razorpay_btn ">Pay With
                                 Razorpay</button>
 
-                            <p class="mt-3">
+                            {{-- <p class="mt-3">
 
                             <div id="paypal-button-container"></div>
-                            </p>
+                            </p> --}}
 
                             @else
                             <h4 class="text-center">No Products in the Cart</h4>
@@ -150,18 +148,18 @@ Checkout
 @section('scripts')
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 {{-- //paypal script --}}
-<script
+{{-- <script
     src="https://www.paypal.com/sdk/js?client-id=AQyDPbVFIzkA0sA3UC1fiHu0kI7hNaW5Kxi8EIrc7Vdi2sk8Oy8cJdYnJcbHyInykzQfwxa856PQRRy1">
-</script>
+</script> --}}
 
-<script>
+{{-- <script>
     paypal.Buttons({
 createOrder: function(data, actions) {
     // This function sets up the details of the transaction, including the amount and line item details.
     return actions.order.create({
       purchase_units: [{
         amount: {
-          value: '1'
+          value: '{{$total}}'
         }
       }]
     });
@@ -216,5 +214,5 @@ createOrder: function(data, actions) {
 }).render('#paypal-button-container');
 //This function displays payment buttons on your web page.
 
-</script>
+</script> --}}
 @endsection

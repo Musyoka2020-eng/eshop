@@ -36,6 +36,8 @@ class Cartcontroller extends Controller
                 }
 
             }
+
+
         } else {
             return response()->json(['status' => "Login to Continue"]);
         }
@@ -86,5 +88,5 @@ class Cartcontroller extends Controller
        return response()->json(['count'=> $cartcount]);
 
     }
-    
+
 }
