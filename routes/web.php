@@ -1,18 +1,21 @@
 <?php
 
 // use auth;
+use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\RepairController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Frontend\Cartcontroller;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\RatingController;
+use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
-use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\WishlistController;
 
 /*
@@ -56,6 +59,7 @@ Route::get('load-wishlist-count', [WishlistController::class, 'wishcount']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('cart', [Cartcontroller::class, 'viewcart']);
+    Route::get('cart2', [Cartcontroller::class, 'viewcart2']);
     Route::get('checkout', [CheckoutController::class, 'index']);
     Route::post('place-order', [CheckoutController::class, 'placeorder']);
     Route::post('proceed-to-pay', [CheckoutController::class, 'razorpaycheck']);
@@ -68,14 +72,17 @@ Route::middleware(['auth'])->group(function () {
     Route::put('update-review', [ReviewController::class, 'update']);
 
     Route::get('my-orders', [UserController::class, 'index']);
+    Route::get('my-orders2', [UserController::class, 'index2']);
 
     Route::get('view-order/{id}', [UserController::class, 'view']);
+    Route::get('view-order/{id}', [UserController::class, 'view2']);
     Route::get('delete-order/{id}', [UserController::class, 'delete']);
 
     Route::get('wishlist', [WishlistController::class, 'index']);
+    Route::get('wishlist2', [WishlistController::class, 'index2']);
 
 
-    Route::get('myprofile/{name}', [UserController::class, 'viewprofile']);
+    Route::get('myprofile/{id}', [UserController::class, 'viewprofile']);
     Route::get('user', [UserController::class, 'profile']);
     Route::put('updateprofile', [UserController::class, 'update']);
 
@@ -97,6 +104,21 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('update.category/{id}', [CategoryController::class, 'update']);
     Route::get('delete-category/{id}', [CategoryController::class, 'destroy']);
 
+    // Service Controller
+    Route::get('service', [ServiceController::class, 'index']);
+    Route::get('add-service', [ServiceController::class, 'add']);
+    Route::post('insert-service', [ServiceController::class, 'insert']);
+    Route::get('edit-service/{id}', [ServiceController::class, 'edit']);
+    Route::put('update.service/{id}', [ServiceController::class, 'update']);
+
+    // Repair Controller
+    Route::get('repair', [RepairController::class, 'index']);
+    Route::get('add-repair', [RepairController::class, 'add']);
+    Route::post('insert-repair', [RepairController::class, 'insert']);
+    Route::get('edit-repair/{id}', [RepairController::class, 'edit']);
+    Route::put('update.repair/{id}', [RepairController::class, 'update']);
+    Route::get('delete-repair/{id}', [RepairController::class, 'delete']);
+
     // Products routes
     Route::get('products', [ProductController::class, 'index']);
     Route::get('add-products', [ProductController::class, 'add']);
@@ -105,7 +127,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('update.product/{id}', [ProductController::class, 'update']);
     Route::get('delete-product/{id}', [ProductController::class, 'destroy']);
 
-
+    // Order Controller
     Route::get('orders', [OrderController::class, 'index']);
     Route::get('admin/view-order/{id}', [OrderController::class, 'view']);
     Route::put('update-order/{id}', [OrderController::class, 'updateorder']);

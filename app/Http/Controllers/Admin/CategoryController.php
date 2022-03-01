@@ -93,15 +93,15 @@ class CategoryController extends Controller
     }
 }
 
- // $this->validate($request, [
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //   ]);
+//  $this->validate($request, [
+//             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//           ]);
 
-        // if ($request->hasFile('image')) {
-        //     $image = $request->file('image');
-        //     $name = str_slug($request->name).'.'.$image->getClientOriginalExtension();
-        //     $destinationPath = public_path('/assets/uploads/category');
-        //     $imagePath = $destinationPath. "/".  $name;
-        //     $image->move($destinationPath, $name);
-        //     $category->image = $name;
-        //   }
+//         if ($request->hasFile('image')) {
+//             $image = $request->file('image');
+//             $name = str_slug($request->name).'.'.$image->getClientOriginalExtension();
+//             $destinationPath = public_path('/assets/uploads/category');
+//             $imagePath = $destinationPath. "/".  $name;
+//             $image->move($destinationPath, $name);
+//             $category->image = $name;
+//           }

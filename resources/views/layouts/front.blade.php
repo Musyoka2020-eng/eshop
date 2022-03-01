@@ -42,10 +42,10 @@
 <body>
     @include('layouts.inc.frontnavbar')
 
-    <div class="content">
+    <div class="content mb-4">
         @yield('content')
     </div>
-
+    @include('layouts.inc.frontfooter')
     <div class="whatsapp-chat">
         <a href="https://wa.me/+254705092528?text=I'm%20interested%20in%20your%20products%20of%20sale" target="_blank">
             <img src="{{asset('assets/images/whatsapp.icon.jpg')}}" alt="whatsapp-logo" height="50px" width="50px">

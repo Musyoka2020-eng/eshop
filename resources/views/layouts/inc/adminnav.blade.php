@@ -40,8 +40,7 @@
                                 <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                      document.getElementById('logout-form').submit();">
-                                         {{-- {{ __('Logout') }} --}}
+                                        document.getElementById('logout-form').submit();">
                                          <i class="fa-solid fa-right-from-bracket fa-shake"></i>
                                          <span class="d-sm-inline d-none">Logout</span>
                                      </a>

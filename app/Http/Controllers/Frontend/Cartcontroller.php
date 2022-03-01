@@ -48,6 +48,11 @@ class Cartcontroller extends Controller
         $cartItems = Cart::where('user_id', Auth::id())->get();
         return view('frontend.cart', compact('cartItems'));
     }
+    public function viewcart2()
+    {
+        $cartItems = Cart::where('user_id', Auth::id())->get();
+        return view('frontend.User.cart', compact('cartItems'));
+    }
 
     public function updatecart(Request $request)
     {

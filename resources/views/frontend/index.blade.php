@@ -7,37 +7,6 @@ Outlets Electronics
 @include('layouts.inc.slider')
 
 <main>
-    {{-- <div class="container py-5">
-        <div class="row flex-nowrap">
-            <div class="col-auto px-0">
-                <div id="sidebar" class="collapse collapse-horizontal show">
-                    <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
-                        <a href="/" class="list-group-item  d-inline-block text-truncate" data-bs-parent="#sidebar"><i
-                                class="fa fa-home"></i> <span>Home</span> </a>
-                        <a href="#" class="list-group-item  d-inline-block text-truncate" data-bs-parent="#sidebar"><i
-                                class="fa fa-film"></i> <span>New Products</span></a>
-                        <a href="#" class="list-group-item  d-inline-block text-truncate" data-bs-parent="#sidebar"><i
-                                class="fa fa-heart"></i> <span>All Products</span></a>
-                        <a href="#" class="list-group-item  d-inline-block text-truncate" data-bs-parent="#sidebar"><i
-                                class="fa-solid fa-list"></i>
-                            <span>Categories</span></a>
-                        <a href="#" class="list-group-item  d-inline-block text-truncate" data-bs-parent="#sidebar"><i
-                                class="fa fa-clock"></i> <span>Most Rated</span></a>
-                        <a href="#" class="list-group-item  d-inline-block text-truncate" data-bs-parent="#sidebar"><i
-                                class="fa fa-archive"></i> <span>Best
-                                Wishlist</span></a>
-                        <a href="#" class="list-group-item  d-inline-block text-truncate" data-bs-parent="#sidebar"><i
-                                class="fa fa-gear"></i> <span>Featured
-                                Products</span></a>
-                        <a href="#" class="list-group-item  d-inline-block text-truncate" data-bs-parent="#sidebar"><i
-                                class="fa fa-calendar"></i> <span>Offers</span></a>
-                        <a href="#" class="list-group-item  d-inline-block text-truncate" data-bs-parent="#sidebar"><i
-                                class="fa fa-envelope"></i> <span>Services</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <div class="flex-shrink-0 p-3 bg-white" style="width: 150px;">
         <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
             <svg class="bi me-2" width="30" height="24">
@@ -130,7 +99,6 @@ Outlets Electronics
                 </div>
             </div>
         </div>
-
         <div class="py-4">
             <div class="container">
                 <div class="row ">
@@ -170,8 +138,7 @@ Outlets Electronics
                                     <div class="card-body">
                                         <h5>{{ $prod->product->name }}</h5>
                                         <span class="float-start">Ksh {{ $prod->product->selling_price }}</span>
-                                        <span class="float-end"><s> Ksh{{ $prod->product->original_price
-                                                }}</s></span>
+                                        <span class="float-end"><s> Ksh{{ $prod->product->original_price}}</s></span>
                                     </div>
                                 </a>
                             </div>
@@ -184,67 +151,6 @@ Outlets Electronics
         </div>
     </div>
 </main>
-<hr>
-    <footer class="py-4">
-        <div class="row w-100 pl-5">
-            <div class="col-2">
-                <h5>Computer</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                </ul>
-            </div>
-
-            <div class="col-2">
-                <h5>Electronics</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                </ul>
-            </div>
-
-            <div class="col-2">
-                <h5>Households</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                </ul>
-            </div>
-
-            <div class="col-4 offset-1">
-                <form>
-                    <h5>Subscribe to our newsletter</h5>
-                    <p>Monthly digest of whats new and exciting from us.</p>
-                    <div class="d-flex w-100 gap-2">
-                        <label for="newsletter1" class="visually-hidden">Email address</label>
-                        <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                        <button class="btn btn-primary" type="button">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="d-flex justify-content-between py-4 my-4 border-top">
-            <p>© 2021 Company, Inc. All rights reserved.</p>
-            <ul class="list-unstyled d-flex">
-                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#twitter"></use>
-                        </svg></a></li>
-                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#instagram"></use>
-                        </svg></a></li>
-                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#facebook"></use>
-                        </svg></a></li>
-            </ul>
-        </div>
-    </footer>
 @endsection
 
 @section('scripts')
@@ -255,10 +161,13 @@ Outlets Electronics
             nav: false,
             dots: false,
             responsive: {
-                0: {
+                400: {
                     items: 1
                 },
                 600: {
+                    items: 2
+                },
+                800: {
                     items: 3
                 },
                 1000: {

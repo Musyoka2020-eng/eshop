@@ -35,14 +35,24 @@
             text-decoration: none !important;
             color: black;
         }
+
     </style>
 
 </head>
 
 <body>
-
+    @include('layouts.inc.frontnavbar')
     <div class="content">
-        @yield('content')
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                    @include('layouts.inc.userdata.userside')
+                </div>
+                <div class="col py-3">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
@@ -57,31 +67,29 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script>
         var availableTags = [];
-          $.ajax({
-              type: "GET",
-              url: "/product-list",
-              success: function (response) {
+        $.ajax({
+            type: "GET",
+            url: "/product-list",
+            success: function(response) {
                 //   console.log(response);
-                  startAutoComplete(response);
-              }
-          });
+                startAutoComplete(response);
+            }
+        });
 
-          function startAutoComplete(availableTags){
-            $( "#search_product" ).autocomplete({
-            source: availableTags
-          });
-          }
-
+        function startAutoComplete(availableTags) {
+            $("#search_product").autocomplete({
+                source: availableTags
+            });
+        }
     </script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (session('status'))
-    <script>
-        swal("{{session('status')}}");
-    </script>
+        <script>
+            swal("{{ session('status') }}");
+        </script>
     @endif
     @yield('scripts')
 </body>
 
 </html>
-

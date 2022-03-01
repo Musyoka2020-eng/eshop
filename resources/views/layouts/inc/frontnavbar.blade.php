@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">Outlet's Electronic</a>
 
-        <div class="search-bar mb-0">
+        <div class="search-bar mb-0 mt-2">
             <form action="{{url('searchproduct')}}" method="POST">
                 @csrf
                 <div class="input-group">
@@ -57,7 +57,7 @@
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i class="fa-solid fa-circle-user fa-xl"></i>
                                 {{ Auth::user()->name }}
                             </a>
 
