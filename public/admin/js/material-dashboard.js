@@ -805,5 +805,6 @@ function darkMode(el) {
       card_border_dark[i].classList.remove('border-dark');
     }
     el.removeAttribute("checked");
+
   }
 };
