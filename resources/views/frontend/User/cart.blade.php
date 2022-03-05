@@ -50,7 +50,7 @@ My Cart
         @else
         <div class=" text-center">
             <h2>Your <i class="fa-solid fa-cart-shopping fa-bounce"></i>Cart is empty </h2>
-            <a href="{{url('category')}}" class="btn btn-outline-primary float-end">Continue Shopping</a>
+            {{-- <a href="{{url('category')}}" class="btn btn-outline-primary float-end">Continue Shopping</a> --}}
         </div>
         @endif
     </div>

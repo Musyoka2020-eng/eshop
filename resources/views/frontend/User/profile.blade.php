@@ -8,8 +8,7 @@
                         <span> Name: <span class="font-weight-bold">
                                 {{ Auth::user()->name . ' ' . Auth::user()->lname }}</span></span>
                         <span> Email: <span class="text-black-50"> {{ Auth::user()->email }}</span> </span>
-                        <span> Country: <span class="text-black-50"> {{ Auth::user()->country }}-
-                                {{ Auth::user()->city }}</span></span>
+                        <span> Country: <span class="text-black-50"> {{ Auth::user()->city }}- {{ Auth::user()->country }}</span></span>
                     </div>
                 </div>
                 <div class="col-md-8">

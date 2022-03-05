@@ -18,7 +18,15 @@ Checkout
     </div>
 </div>
 
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container mt-4">
     {{-- <div class="card"> --}}
         <form action="{{url('place-order')}}" method="POST">
@@ -123,6 +131,7 @@ Checkout
                             </h6>
                             <hr>
                             <input type="hidden" name="payment_mode" value="COD">
+                            <input type="hidden" name="payment_id" value="{{  'Outlet' .date('y.M.d.H') }}">
                             <button type="submit" class="btn btn-success w-100 ">Place Order | COD</button>
                             <button type="button" class="btn btn-primary w-100 mt-3 razorpay_btn ">Pay With
                                 Razorpay</button>

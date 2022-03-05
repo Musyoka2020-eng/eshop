@@ -34,6 +34,21 @@ class CheckoutController extends Controller
     }
     public function placeorder(Request $request)
     {
+        $user = User::where('user_id ', Auth::id());
+        $order = $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+            'pincode' => 'required',
+            'payment_mode' => 'required',
+            'payment_id' => 'required',
+        ]);
         $order = new Order();
         $order->user_id = Auth::id();
         $order->fname = $request->input('fname');
@@ -55,7 +70,7 @@ class CheckoutController extends Controller
             $total += $prod->products->selling_price;
         }
         $order->total_price = $total;
-        $order->tracking_no = 'steve' . rand(1111, 9999);
+        $order->tracking_no = $request->input('fname'). rand(1111, 9999);
         $order->save();
 
         $order->id;

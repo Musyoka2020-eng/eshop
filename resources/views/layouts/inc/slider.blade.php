@@ -7,24 +7,31 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{asset('assets/images/willian-justen-de-vasconcellos-PwcJ-IwWPI0-unsplash.jpg') }}" class="d-block w-100 hcar" alt="...">
+        <img src="{{asset('assets/images/Banners/Camon-18_1168x384Px.jpg') }}" class="d-block w-100 hcar" alt="...">
         <div class="carousel-caption d-none custom d-md-block">
           <h5>First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{asset('assets/images/jeremy-bezanger-Jx-UX9zVdKk-unsplash.jpg')}}"  class="d-block w-100 hcar" alt="...">
+        <img src="{{asset('assets/images/Banners/fitbit_1168x384_1.jpg')}}"  class="d-block w-100 hcar" alt="...">
         <div class="carousel-caption d-none custom d-md-block">
           <h5>Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{asset('assets/images/frank-septillion-Qrspubmx6kE-unsplash.jpg') }}"  class="d-block w-100 hcar" alt="...">
+        <img src="{{asset('assets/images/Banners/Galaxy-A03-Core_Product-Slider(1168x384).jpg') }}"  class="d-block w-100 hcar" alt="...">
         <div class="carousel-caption custom d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{asset('assets/images/Banners/KE_Oppo_0321_SIS_1168x384.jpg') }}"  class="d-block w-100 hcar" alt="...">
+        <div class="carousel-caption custom d-none d-md-block">
+          <h5>Fourth slide label</h5>
+          <p>Some representative placeholder content for the Fourth slide.</p>
         </div>
       </div>
     </div>

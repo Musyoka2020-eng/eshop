@@ -5,8 +5,8 @@ Wishlist
 
 @section('content')
 <div class="container my-5">
-    <div class="card shadow wishlistitems">
-        <div class="card-body">
+    <div class="wishlistitems">
+        <div class="">
             @if ($wishlist->count() > 0 )
                 @foreach ($wishlist as $item)
                 <div class="row product_data mt-3">
@@ -41,13 +41,8 @@ Wishlist
                 @endforeach
             </div>
             @else
-            <h4>There Are No Product In Your Wishlist</h4>
+            <h2 class="text-center"><i class="fa-bounce">There Are No  <i class="fa fa-bounce fs-4"> Products </i> In Your Wishlist</i> </h2>
             @endif
         </div>
-
-
-        <div class="card-footer">
-        </div>
-    </div>
 </div>
 @endsection

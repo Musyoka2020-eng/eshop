@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     loadcart();
     loadwishlist();
 
@@ -12,7 +12,7 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: "/load-cart-data",
-            success: function (response) {
+            success: function(response) {
                 $(".cart-count").html("");
                 $(".cart-count").html(response.count);
                 // console.log(response.count)
@@ -24,7 +24,7 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: "/load-wishlist-count",
-            success: function (response) {
+            success: function(response) {
                 $(".wishlist-count").html("");
                 $(".wishlist-count").html(response.count);
                 // console.log(response.count)
@@ -38,7 +38,7 @@ $(document).ready(function () {
         },
     });
 
-    $(".addToCartBtn").click(function (e) {
+    $(".addToCartBtn").click(function(e) {
         e.preventDefault();
         var product_id = $(this)
             .closest(".product_data")
@@ -56,14 +56,14 @@ $(document).ready(function () {
                 product_id: product_id,
                 product_qty: product_qty,
             },
-            success: function (response) {
-                swal(response.status);
-                loadcart();
+            success: function(response) {
+                swal(response.status).then((value) =>
+                    loadcart());
             },
         });
     });
 
-    $(".addtowishlist").click(function (e) {
+    $(".addtowishlist").click(function(e) {
         e.preventDefault();
 
         var product_id = $(this)
@@ -71,25 +71,20 @@ $(document).ready(function () {
             .find(".prod_id")
             .val();
 
-        $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-        });
         $.ajax({
             type: "POST",
             url: "/add-to-wishlist",
             data: {
                 product_id: product_id,
             },
-            success: function (response) {
-                swal(response.status);
-                loadwishlist();
+            success: function(response) {
+                swal(response.status).then((value) =>
+                    loadwishlist());
             },
         });
     });
 
-    $(document).on("click", ".increment-btn", function (e) {
+    $(document).on("click", ".increment-btn", function(e) {
         e.preventDefault();
 
         var inc_value = $(this)
@@ -104,7 +99,7 @@ $(document).ready(function () {
         }
     });
 
-    $(document).on("click", ".decrement-btn", function (e) {
+    $(document).on("click", ".decrement-btn", function(e) {
         e.preventDefault();
 
         var dec_value = $(this)
@@ -119,7 +114,7 @@ $(document).ready(function () {
         }
     });
 
-    $(document).on("click", ".delete-cart-item", function (e) {
+    $(document).on("click", ".delete-cart-item", function(e) {
         e.preventDefault();
 
         var prod_id = $(this).closest(".product_data").find(".prod_id").val();
@@ -129,7 +124,7 @@ $(document).ready(function () {
             data: {
                 prod_id: prod_id,
             },
-            success: function (response) {
+            success: function(response) {
                 // window.location.reload();
                 loadcart();
                 $(".cartitems").load(location.href + " .cartitems");
@@ -138,7 +133,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click", ".remove-wishlist-item", function (e) {
+    $(document).on("click", ".remove-wishlist-item", function(e) {
         e.preventDefault();
 
         var prod_id = $(this).closest(".product_data").find(".prod_id").val();
@@ -148,7 +143,7 @@ $(document).ready(function () {
             data: {
                 prod_id: prod_id,
             },
-            success: function (response) {
+            success: function(response) {
                 // window.location.reload();
                 loadwishlist();
                 $(".wishlistitems").load(location.href + " .wishlistitems");
@@ -157,7 +152,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click", ".changeQuantity", function (e) {
+    $(document).on("click", ".changeQuantity", function(e) {
         e.preventDefault();
 
         $.ajaxSetup({
@@ -177,10 +172,75 @@ $(document).ready(function () {
             type: "POST",
             url: "update-cart",
             data: data,
-            success: function (response) {
+            success: function(response) {
                 // window.location.reload();
                 $(".cartitems").load(location.href + " .cartitems");
             },
         });
     });
+
+});
+
+// owlCarousel
+$(document).ready(function() {
+    // owl carousel category
+    var owl = $('.category-carousel');
+    owl.owlCarousel({
+        items: 4,
+        loop: true,
+        margin: 10,
+        dots: false,
+        smartSpeed: true,
+        autoplay: true,
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true
+    });
+    $('.play').on('click', function() {
+        owl.trigger('play.owl.autoplay', [1000])
+    })
+    $('.stop').on('click', function() {
+        owl.trigger('stop.owl.autoplay')
+    })
+});
+$(document).ready(function() {
+    // featured products carousel
+    var owl = $('.featured-carousel');
+    owl.owlCarousel({
+        items: 4,
+        loop: true,
+        margin: 10,
+        dots: false,
+        smartSpeed: true,
+        slideSpeed: 1000,
+        autoplaySpeed: 2000,
+
+    });
+    owl.on('mousewheel', '.owl-stage', function(e) {
+        if (e.deltaY > 0) {
+            owl.trigger('next.owl');
+        } else {
+            owl.trigger('prev.owl');
+        }
+        e.preventDefault();
+    });
+});
+$(document).ready(function() {
+    // owl carousel
+    var owl = $('.rated-carousel');
+    owl.owlCarousel({
+        items: 4,
+        loop: true,
+        margin: 10,
+        dots: false,
+        smartSpeed: true,
+        autoplay: true,
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true
+    });
+    $('.play').on('click', function() {
+        owl.trigger('play.owl.autoplay', [1000])
+    })
+    $('.stop').on('click', function() {
+        owl.trigger('stop.owl.autoplay')
+    })
 });
