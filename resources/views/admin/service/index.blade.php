@@ -16,7 +16,7 @@ Admin:Services
                     <th>Id</th>
                     <th>Name</th>
                     <th>Date</th>
-                    <th>Image</th>
+                    {{-- <th>Image</th> --}}
                     <th>Description</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -27,10 +27,10 @@ Admin:Services
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->serv_name }}</td>
-                        <td>{{ $item->created_at->format('Y/M/D') }}</td>
-                        <td>
+                        <td>{{ $item->created_at->format('d M y') }}</td>
+                        {{-- <td>
                           <img src="{{asset('assets/uploads/services/'.$item->image)}}" class="prod-image" alt="Image here">
-                        </td>
+                        </td> --}}
                         <td>{{ $item->description }}</td>
                         <td>{{ $item->status }}</td>
                         <td>

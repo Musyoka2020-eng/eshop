@@ -244,3 +244,18 @@ $(document).ready(function() {
         owl.trigger('stop.owl.autoplay')
     })
 });
+$(document).ready(function() {
+    $("#service_name").on('change', function() {
+        let element = $(this);
+        $.ajax({
+            url: 'selserv',
+            method: 'GET',
+            data: {
+                'serv_name': element.val(),
+            },
+            success: function(response) {
+                $("#total_price").val(response.data).trigger('change');
+            },
+        });
+    });
+});

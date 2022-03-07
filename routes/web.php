@@ -118,6 +118,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('edit-repair/{id}', [RepairController::class, 'edit']);
     Route::put('update.repair/{id}', [RepairController::class, 'update']);
     Route::get('delete-repair/{id}', [RepairController::class, 'delete']);
+    Route::get('selserv', [RepairController::class, 'getTotalCost']);
 
     // Products routes
     Route::get('products', [ProductController::class, 'index']);

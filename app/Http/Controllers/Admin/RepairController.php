@@ -91,4 +91,12 @@ class RepairController extends Controller
         $repair->delete();
         return redirect('repair')->with('status',"Repair Deleted Successfully");
     }
+    public function getTotalCost(Request $request)
+{
+    $service = Service::where('serv_name', 'like', $request->input("serv_name"))->first();
+    if ($service == null) {
+        return null;
+    }
+    return response()->json($service->cost);
+}
 }

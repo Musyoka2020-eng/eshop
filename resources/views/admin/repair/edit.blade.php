@@ -16,7 +16,7 @@ Admin:Products
             <div class="row">
                 <div class="input-group input-group-static my-3">
                     <label for="exampleFormControlSelect1" class="ms-0">Repair</label>
-                    <input type="text" name="type" value="{{ $repairs->service->serv_name }}" id="" class="form-control" disabled>
+                    <input type="text" name="type" value="{{ $repairs->type }}" id="" class="form-control" disabled>
                 </div>
                 <div class="col-md-6">
                     <div class="input-group input-group-outline my-3">
