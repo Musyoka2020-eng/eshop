@@ -244,6 +244,7 @@ $(document).ready(function() {
         owl.trigger('stop.owl.autoplay')
     })
 });
+
 $(document).ready(function() {
     $("#service_name").on('change', function() {
         let element = $(this);
