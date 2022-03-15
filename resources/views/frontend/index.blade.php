@@ -55,6 +55,17 @@
                             <li><a href="#" class="link-dark rounded">Returned</a></li>
                         </ul>
                     </div>
+                </li> 
+                  <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#repairs-collapse" aria-expanded="false">
+                       Repairs
+                    </button>
+                    <div class="collapse" id="repairs-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="{{url('repairs') }}" class="link-dark rounded mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">View repairs</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="border-top my-3"></li>
                 <li class="mb-1">
@@ -241,3 +252,29 @@
     //     })
 </script>
 @endsection --}}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter your repair email to search for the repair product.</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="{{ url('searchrepair') }}" method="POST">
+        @csrf
+      <div class="modal-body">
+            <div class="input-group">
+                <input type="search" class="form-control" name="email" id="search_repair"
+                    placeholder="Search Repair" aria-describedby="basic-addon1">
+                <button type="submit" class="input-group-text"><i
+                        class="fa-solid fa-search"></i></button>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Search repair</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

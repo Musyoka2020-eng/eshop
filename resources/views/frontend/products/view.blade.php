@@ -76,7 +76,7 @@
         <div class="">
             <div class="row">
                 <div class="col-md-4 border-right">
-                    <img src="{{asset('assets/uploads/products/'.$products->image)}}" class="cartim" alt="">
+                    <img src="{{asset('assets/uploads/products/'.$products->image)}}" class="cartim" alt="Product Image">
                 </div>
                 <div class="col-md-8">
                     <h2 class="mb-0">
@@ -85,8 +85,7 @@
                         <label for="" style="font-size: 16px;"
                             class="float-end badge bg-danger trending_tag">Trending</label>
                         @endif
-                    </h2>
-
+                    </h2
                     <hr>
                     <label class="me-3">Original Price : <s>Ksh {{$products->original_price}}</s></label>
                     <label class="fw-bold">Selling Price : Ksh {{$products->selling_price}}</label>

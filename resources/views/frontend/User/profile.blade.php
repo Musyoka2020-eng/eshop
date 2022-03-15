@@ -4,7 +4,7 @@
                 <div class="col-md-4 border-right">
                     {{-- <img  class="edit-image w-25 form-control" alt="Category image"> --}}
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                            src="{{ asset('assets/uploads/users/' . Auth::user()->image) }}" width="150" height="150">
+                            src="{{ asset('assets/uploads/users/' . Auth::user()->image) }}" width="150" height="150" alt="Uset"
                         <span> Name: <span class="font-weight-bold">
                                 {{ Auth::user()->name . ' ' . Auth::user()->lname }}</span></span>
                         <span> Email: <span class="text-black-50"> {{ Auth::user()->email }}</span> </span>

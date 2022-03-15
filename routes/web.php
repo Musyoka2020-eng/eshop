@@ -1,22 +1,23 @@
 <?php
 
 // use auth;
-use App\Models\Service;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\Admin\RepairController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Frontend\Cartcontroller;
-use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Frontend\RatingController;
-use App\Http\Controllers\Frontend\ReviewController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\RepairController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Frontend\Cartcontroller;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\RaterepairsController;
+use App\Http\Controllers\Frontend\RatingController;
+use App\Http\Controllers\Frontend\ReviewController;
+use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Frontend\ViewrepairController;
 use App\Http\Controllers\Frontend\WishlistController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,14 @@ Route::get('category', [FrontendController::class, 'category']);
 Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
 Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
+Route::get('edit-review', [RaterepairsController::class, 'edit']);
 
+Route::put('update-review', [RaterepairsController::class, 'update']);
+
+Route::get('my-orders', [UserController::class, 'index']);
+Route::get('my-orders2', [UserController::class, 'index2']);
+
+// search controller
 Route::get('product-list', [FrontendController::class, 'productlistAjax']);
 Route::post('searchproduct', [FrontendController::class, 'searchproduct']);
 
@@ -56,13 +64,20 @@ Route::post('add-to-wishlist', [WishlistController::class, 'add']);
 Route::post('delete-wishlist-item', [WishlistController::class, 'deleteitem']);
 Route::get('load-wishlist-count', [WishlistController::class, 'wishcount']);
 
-
 Route::middleware(['auth'])->group(function () {
     Route::get('cart', [Cartcontroller::class, 'viewcart']);
     Route::get('cart2', [Cartcontroller::class, 'viewcart2']);
     Route::get('checkout', [CheckoutController::class, 'index']);
     Route::post('place-order', [CheckoutController::class, 'placeorder']);
     Route::post('proceed-to-pay', [CheckoutController::class, 'razorpaycheck']);
+
+    // Viewrepair Controller
+    Route::get('repairs', [ViewrepairController::class, 'index']);
+    Route::get('repair_list', [ViewrepairController::class, 'repairlistAjax']);
+    Route::any('searchrepair', [ViewrepairController::class, 'searchrepair']);
+    Route::get('view-repair/{id}', [ViewrepairController::class, 'viewrepair']);
+
+    Route::post('add-repairrate', [RaterepairsController::class, 'add']);
 
     Route::post('add-rating', [RatingController::class, 'add']);
 
@@ -81,13 +96,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('wishlist', [WishlistController::class, 'index']);
     Route::get('wishlist2', [WishlistController::class, 'index2']);
 
-
     Route::get('myprofile/{id}', [UserController::class, 'viewprofile']);
     Route::get('user', [UserController::class, 'profile']);
     Route::put('updateprofile', [UserController::class, 'update']);
-
-
-
 
 });
 // CheckoutController
@@ -136,5 +147,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('users', [DashboardController::class, 'users']);
     Route::get('view-users/{id}', [DashboardController::class, 'viewusers']);
+    Route::get('order', [DashboardController::class, 'complete']);
 
 });

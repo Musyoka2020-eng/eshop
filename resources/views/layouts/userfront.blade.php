@@ -83,6 +83,24 @@
         }
     </script>
 
+    <script>
+        var availableTags = [];
+        $.ajax({
+            type: "GET",
+            url: "/repair-list",
+            success: function(response) {
+                //   console.log(response);
+                startAutoComplete(response);
+            }
+        });
+
+        function startAutoComplete(availableTags) {
+            $("#search_repair").autocomplete({
+                source: availableTags
+            });
+        }
+    </script>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (session('status'))
         <script>
