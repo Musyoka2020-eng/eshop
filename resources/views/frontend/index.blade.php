@@ -5,6 +5,33 @@
 
 @section('content')
     @include('layouts.inc.slider')
+    
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Enter your repair email to search for the repair product.</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{ url('searchrepair') }}" method="POST">
+          @csrf
+        <div class="modal-body">
+              <div class="input-group">
+                  <input type="search" class="form-control" name="email" id="search_repair"
+                      placeholder="Search Repair" aria-describedby="basic-addon1">
+                  <button type="submit" class="input-group-text"><i
+                          class="fa-solid fa-search"></i></button>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Search repair</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  
 
     <main>
         <div class="flex-shrink-0 p-3 bg-white" style="width: 150px;">
@@ -252,29 +279,3 @@
     //     })
 </script>
 @endsection --}}
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Enter your repair email to search for the repair product.</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form action="{{ url('searchrepair') }}" method="POST">
-        @csrf
-      <div class="modal-body">
-            <div class="input-group">
-                <input type="search" class="form-control" name="email" id="search_repair"
-                    placeholder="Search Repair" aria-describedby="basic-addon1">
-                <button type="submit" class="input-group-text"><i
-                        class="fa-solid fa-search"></i></button>
-            </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Search repair</button>
-      </div>
-    </form>
-    </div>
-  </div>
-</div>

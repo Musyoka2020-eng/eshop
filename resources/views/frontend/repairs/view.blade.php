@@ -49,19 +49,19 @@
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Write a review</label>
-                            @if ($ratings)
-                            @foreach ($ratings as $items)
+                            @if ($review)
+
+                            @foreach ($review as $items)
                             <textarea class="form-control" name="user_review" id="message-text">{{ $items->user_review }}</textarea>    
                             @endforeach
-                            <textarea class="form-control" name="user_review" id="message-text"></textarea>  
                             @else
-                                
+                            <textarea class="form-control" name="user_review" id="message-text"></textarea>  
                             @endif
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="Submit" class="btn btn-primary">Send message</button>
+                        <button type="Submit" class="btn btn-primary">Send Review</button>
                     </div>
                 </form>
             </div>
@@ -122,14 +122,16 @@
                                     </div>
                                      <div class="col-md-8">
                                         @foreach ($ratings as $item )
-                                        <small>Reviewed on {{$item->created_at->format('d M Y')}}</small>
+                                        <small>Reviewed on {{$item->created_at->format('d M Y')}}</small><br>
+                                        <span>by</span>
+                                        <label for="">{{ $item->user->name.' '.$item->user->lname }}</label>
                                         <p>
                                            {{$item->user_review}}
                                         </p>
                                         @endforeach
 
                                         @php $ratenum = number_format($rating_value) @endphp
-                                        <div class="rating float-end">
+                                        <div class="rating">
                                             @for($i=1; $i<=$ratenum; $i++)
                                             <i class="fa-solid fa-star checked"></i>
                                             @endfor

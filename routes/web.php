@@ -39,10 +39,6 @@ Route::get('category', [FrontendController::class, 'category']);
 Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
 Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
-Route::get('edit-review', [RaterepairsController::class, 'edit']);
-
-Route::put('update-review', [RaterepairsController::class, 'update']);
-
 Route::get('my-orders', [UserController::class, 'index']);
 Route::get('my-orders2', [UserController::class, 'index2']);
 
