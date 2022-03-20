@@ -15,20 +15,20 @@ Admin:Category
                 @method('PUT')
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="input-group input-group-outline my-3">
-                            <label class="form-label">Name</label>
+                        <label class="form-label">Name</label>
+                        <div class="input-group input-group-outline my-1">
                             <input type="text"  name="name" value="{{$category->name}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="input-group input-group-outline my-3">
-                            <label class="form-label">Slug</label>
+                        <label class="form-label">Slug</label>
+                        <div class="input-group input-group-outline my-1">
                             <input type="text" name="slug" value="{{$category->slug}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <label class="form-label">Description</label>
-                        <div class="input-group input-group-outline my-3">
+                        <div class="input-group input-group-outline my-1">
                             <textarea class="form-control" rows="2" placeholder="" name="description"
                                 spellcheck="false">{{$category->description}}</textarea>
                         </div>
@@ -47,38 +47,38 @@ Admin:Category
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <div class="input-group input-group-outline my-3">
-                            <label class="form-label">Meta Title</label>
+                        <label class="form-label">Meta Title</label>
+                        <div class="input-group input-group-outline my-1">
                             <input type="text" name="meta_title" value="{{$category->meta_title}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <div class="input-group input-group-outline my-3">
-                            <label class="form-label">Meta Keywords</label>
+                        <label class="form-label">Meta Keywords</label>
+                        <div class="input-group input-group-outline my-1">
                             <input type="text" name="meta_keywords" value="{{$category->meta_keywords}}" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <label class="form-label">Meta Description</label>
-                        <div class="input-group input-group-outline my-3">
+                        <div class="input-group input-group-outline my-1">
                             <textarea class="form-control" rows="2" name="meta_descrip"
                                 spellcheck="false">{{$category->meta_descrip}}</textarea>
                         </div>
                     </div>
                     @if($category->image)
                     <div class="col-sm-12">
-                        <div class="input-group input-group-outline my-3 w-25">
+                        <div class="input-group input-group-outline my-1 w-25">
                         <img src="{{asset('assets/uploads/category/'.$category->image)}}" class="edit-image w-25 form-control" alt="Category image">
                     </div>
                 </div>
                     @endif
                     <div class="col-sm-6">
-                        <div class="input-group input-group-outline my-3">
+                        <div class="input-group input-group-outline my-2">
                             <input type="file" name="image" class="form-control-file">
                         </div>
                     </div>
-                    <div class="col-sm-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary float-end">Update</button>
                     </div>
                 </div>
             </form>

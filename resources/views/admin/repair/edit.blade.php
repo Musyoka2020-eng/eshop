@@ -19,38 +19,38 @@ Admin:Products
                     <input type="text" name="type" value="{{ $repairs->type }}" id="" class="form-control" disabled>
                 </div>
                 <div class="col-md-6">
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Name</label>
+                    <label class="form-label">Name</label>
+                    <div class="input-group input-group-outline my-1">
                         <input type="text" name="prod_name" value="{{ $repairs->prod_name }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Client Name</label>
+                    <label class="form-label">Client Name</label>
+                    <div class="input-group input-group-outline my-1">
                         <input type="text" name="user_name" value="{{ $repairs->user_name }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Client Phone</label>
+                    <label class="form-label">Client Phone</label>
+                    <div class="input-group input-group-outline my-1">
                         <input type="text" name="contact" value="{{ $repairs->contact }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Client Email</label>
+                    <label class="form-label">Client Email</label>
+                    <div class="input-group input-group-outline my-1">
                         <input type="text" name="email" value="{{ $repairs->email }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <label class="form-label">Conditions</label>
-                    <div class="input-group input-group-outline my-3">
+                    <div class="input-group input-group-outline my-1">
                         <textarea class="form-control" rows="2" name="condition" spellcheck="false">{{ $repairs->condition }}</textarea>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Total Price</label>
+                    <label class="form-label">Total Price</label>
+                    <div class="input-group input-group-outline my-1">
                         <input type="number" name="total_price" value="{{ $repairs->total_price }}" class="form-control">
                     </div>
                 </div>
@@ -62,7 +62,7 @@ Admin:Products
                 </div>
                 <div class="col-sm-12">
                     <label class="form-label">Description</label>
-                    <div class="input-group input-group-outline my-3">
+                    <div class="input-group input-group-outline my-1">
                         <textarea class="form-control" rows="2" name="description" spellcheck="false">{{ $repairs->description }}</textarea>
                     </div>
                 </div>
@@ -78,8 +78,8 @@ Admin:Products
                         <input type="file" name="image" class="form-control-file">
                     </div>
                 </div>
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="col-sm-6 my-2">
+                    <button type="submit" class="btn btn-primary float-end">Submit</button>
                 </div>
             </div>
         </form>

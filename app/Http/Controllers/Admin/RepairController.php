@@ -43,7 +43,7 @@ class RepairController extends Controller
         $repairs->status = $request->input('status') == true ? '1' : '0';
         $repairs->tracking_code = 'steverep' . date('My-d');
         $repairs->save();
-        return redirect('repair')->with('status', "Repair Added Successfully");
+        return redirect('repair')->with('status', $repairs->prod_name." ". "Repair Added Successfully");
     }
     public function edit($id)
     {
@@ -75,7 +75,7 @@ class RepairController extends Controller
         $repairs->total_price = $request->input('total_price');
         $repairs->status = $request->input('status') == true ? '1' : '0';
         $repairs->update();
-        return redirect('repair')->with('status', "Repair Updated Successfully");
+        return redirect('repair')->with('status', $repairs->prod_name." ". "Repair Updated Successfully");
     }
     public function delete($id)
     {
@@ -89,7 +89,7 @@ class RepairController extends Controller
             }
         }
         $repair->delete();
-        return redirect('repair')->with('status',"Repair Deleted Successfully");
+        return redirect('repair')->with('status',$repair->prod_name." "."Repair Deleted Successfully");
     }
     public function getTotalCost(Request $request)
 {

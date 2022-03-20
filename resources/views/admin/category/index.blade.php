@@ -18,6 +18,7 @@ Admin:Category
                         <th>Name</th>
                         <th>Description</th>
                         <th>Image</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -30,6 +31,7 @@ Admin:Category
                             <td>
                               <img src="{{asset('assets/uploads/category/'.$item->image)}}" class="cate-image" alt="Image here">
                             </td>
+                            <td>{{ $item->status == '0'? 'Inactive': 'Active' }}</td>
                             <td>
                                <a href="{{url('edit-category/'.$item->id)}}"  class="btn btn-primary">Edit</a>
                                <a href="{{url('delete-category/'.$item->id) }}"  class="btn btn-danger">Delete</a>

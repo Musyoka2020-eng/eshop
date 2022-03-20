@@ -26,4 +26,9 @@ class Repair extends Model
     {
         return $this->belongsTo(Service::class, 'type', 'id');
     }
+
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'email');
+    // }
 }

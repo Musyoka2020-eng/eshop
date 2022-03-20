@@ -37,15 +37,17 @@ Wishlist
                     <div class="col-md-2 my-auto">
                         <input type="hidden" name="" class="prod_id" value="{{$item->prod_id}}">
                         <input type="hidden" name="" class="qty-input" value="1">
-                        @if ($item->products->qty >= $item->prod_qty)
+                        @if ($item->products->qty >= 1)
                         <h6>Available</h6>
                         @else
                         <h6>Out Of Stock</h6>
                         @endif
                     </div>
                     <div class="col-md-2 my-auto">
+                        @if ($item->products->qty > 0)
                         <h6 class=" btn btn-success addToCartBtn"> <i class="fa-solid fa-shopping-cart"></i> Add to Cart
                         </h6>
+                        @endif
                     </div>
                     <div class="col-md-2 my-auto">
                         <h6 class=" btn btn-danger remove-wishlist-item"> <i class="fa-solid fa-trash-can"></i> Remove

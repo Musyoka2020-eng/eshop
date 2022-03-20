@@ -37,7 +37,7 @@ class ServiceController extends Controller
         $service->description = $request->input('description');
         $service->status = $request->input('status') == true ? '1' : '0';
         $service->save();
-        return redirect('service')->with('status', "Service Added Successfully");
+        return redirect('service')->with('status', $service->serv_name." "."Service Added Successfully");
     }
     public function edit($id)
     {
@@ -67,6 +67,6 @@ class ServiceController extends Controller
         $service->description = $request->input('description');
         $service->status = $request->input('status') == true ? '1' : '0';
         $service->update();
-        return redirect('service')->with('status', "Service Updated Successfully");
+        return redirect('service')->with('status', $service->serv_name." "."Service Updated Successfully");
     }
 }

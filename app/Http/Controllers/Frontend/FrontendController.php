@@ -16,14 +16,14 @@ class FrontendController extends Controller
     {
         $featured_products = Product::where('trending', '1')->take(15)->get();
         $rated_products = Rating::where('stars_rated','>=',' 1')->take(15)->get();
-        $trending_category = Category::where('popular', '1')->where('status', '0')->take(15)->get();
+        $trending_category = Category::where('popular', '1')->where('status', '1')->take(15)->get();
         return view('frontend.index', compact('featured_products', 'trending_category','rated_products'));
 
 
     }
     public function category()
     {
-        $category = Category::where('status', '0')->get();
+        $category = Category::where('status', '1')->get();
         return view('frontend.category', compact('category'));
     }
     public function viewcategory($slug)

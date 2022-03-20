@@ -15,20 +15,20 @@ Admin:Services
             @method('PUT')
             <div class="row">
                 <div class="col-md-6">
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Name</label>
+                    <label class="form-label">Name</label>
+                    <div class="input-group input-group-outline my-1">
                         <input type="text" name="serv_name" value= "{{ $service->serv_name }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Slug</label>
+                    <label class="form-label">Slug</label>
+                    <div class="input-group input-group-outline my-1">
                         <input type="text" name="serv_slug" value="{{ $service->serv_slug }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Cost</label>
+                    <label class="form-label">Cost</label>
+                    <div class="input-group input-group-outline my-1">
                         <input type="number" name="cost" value="{{ $service->cost }}" class="form-control">
                     </div>
                 </div>
@@ -41,7 +41,7 @@ Admin:Services
                 </div>
                 <div class="col-sm-12">
                     <label class="form-label">Description</label>
-                    <div class="input-group input-group-outline my-3">
+                    <div class="input-group input-group-outline my-1">
                         <textarea class="form-control" rows="2" name="description" spellcheck="false">{{ $service->description }}</textarea>
                     </div>
                 </div>
@@ -57,8 +57,8 @@ Admin:Services
                         <input type="file" name="image" class="form-control-file">
                     </div>
                 </div>
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary">Update</button>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary float-end">Update</button>
                 </div>
             </div>
         </form>

@@ -3,10 +3,13 @@
 My Cart
 @endsection
 @section('content')
-<div class="container my-5 cartitems">
-    <div class="">
+<div class="container my-3 cartitems">
         @if ($cartItems->count() > 0)
-        <div class="">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h3>Cart</h3>
+            </div>
+            <div class="card-body">
             @php $total = 0;@endphp
             @foreach ($cartItems as $item)
             <div class="row product_data border-bottom fs-5 mt-3">
@@ -42,17 +45,23 @@ My Cart
             </div>
             @endforeach
         </div>
-        <div class="">
+        <div class="card-footer">
             <h6> Total Price: Ksh {{$total}}</h6>
             <a href="{{url('checkout')}}"> <button type="submit" class="btn btn-outline-success float-end">Proceed to
                     Checkout</button></a>
         </div>
+        </div>
         @else
-        <div class=" text-center">
-            <h2>Your <i class="fa-solid fa-cart-shopping fa-bounce"></i>Cart is empty </h2>
-            {{-- <a href="{{url('category')}}" class="btn btn-outline-primary float-end">Continue Shopping</a> --}}
+        <div class="card">
+            <div class="card-header bg-info">
+                <h3>Cart</h3>
+            </div>
+            <div class="card-body">
+                <div class=" text-center">
+                    <h2>Your <i class="fa-solid fa-cart-shopping fa-bounce"></i>Cart is empty </h2>
+                </div>
+            </div>
         </div>
         @endif
     </div>
-</div>
 @endsection

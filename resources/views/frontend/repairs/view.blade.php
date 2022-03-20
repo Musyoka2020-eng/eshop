@@ -50,7 +50,6 @@
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Write a review</label>
                             @if ($review)
-
                             @foreach ($review as $items)
                             <textarea class="form-control" name="user_review" id="message-text">{{ $items->user_review }}</textarea>    
                             @endforeach

@@ -7,7 +7,7 @@
         <a class="navbar-brand m-0" href="#AbleGod">
             <img src="#" class="navbar-brand-img h-100">
             {{-- alt="main_logo" --}}
-            <span class="ms-1 font-weight-bold text-white"> Outlet</span>
+            <span class="ms-1 font-weight-bold text-white">Outlet</span>
         </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
@@ -23,41 +23,119 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('categories') ? 'active bg-gradient-primary' : '' }} "
-                    href="{{ url('categories') }} ">
+                <a class="nav-link text-white {{ Request::is('users') ? 'active bg-gradient-primary' : '' }}  "
+                    href="{{ url('users') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">receipt_long</i>
+                        <i class="material-icons opacity-10">person</i>
                     </div>
-                    <span class="nav-link-text ms-1">Categories</span>
+                    <span class="nav-link-text ms-1">User</span>
+                </a>
+            </li>
+            <button data-bs-target="#submenu1" data-bs-toggle="collapse" aria-expanded="false"
+                class="btn btn-toggle text-white d-flex align-items-center collapsed">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">receipt_long</i>
+                </div>
+                <span class="nav-link-text ms-1">Categories</span>
+            </button>
+            <div class="collapse" id="submenu1" style="">
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ Request::is('categories') ? 'active bg-gradient-primary' : '' }} "
+                        href="{{ url('categories') }} ">
+                        <span class="nav-link-text ms-1">Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ Request::is('add-category') ? 'active bg-gradient-primary' : '' }}  "
+                        href="{{ url('add-category') }}">
+                        <span class="nav-link-text ms-1">Add Category</span>
+                    </a>
+                </li>
+            </div>
+            <button data-bs-target="#submenu2" data-bs-toggle="collapse" aria-expanded="false"
+                class="btn btn-toggle text-white d-flex align-items-center collapsed">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">receipt_long</i>
+                </div>
+                <span class="nav-link-text ms-1">Products</span>
+            </button>
+            <div class="collapse" id="submenu2" style="">
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ Request::is('products') ? 'active bg-gradient-primary' : '' }} "
+                        href="{{ url('products') }} ">
+                        <span class="nav-link-text ms-1">Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ Request::is('add-products') ? 'active bg-gradient-primary' : '' }}  "
+                        href="{{ url('add-products') }}">
+                        <span class="nav-link-text ms-1">Add Products</span>
+                    </a>
+                </li>
+            </div>
+            <button data-bs-target="#submenu3" data-bs-toggle="collapse" aria-expanded="false"
+                class="btn btn-toggle text-white d-flex align-items-center collapsed">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">person</i>
+                </div>
+                <span class="nav-link-text ms-1">Services</span>
+            </button>
+            <div class="collapse" id="submenu3" style="">
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ Request::is('service') ? 'active bg-gradient-primary' : '' }}  "
+                        href="{{ url('service') }}">
+                        <span class="nav-link-text ms-1">Services</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ Request::is('add-service') ? 'active bg-gradient-primary' : '' }}  "
+                        href="{{ url('add-service') }}">
+                        <span class="nav-link-text ms-1">Add Services</span>
+                    </a>
+                </li>
+            </div>
+            <button data-bs-target="#submenu4" data-bs-toggle="collapse" aria-expanded="false"
+                class="btn btn-toggle text-white d-flex align-items-center collapsed">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="material-icons opacity-10">person</i>
+                </div>
+                <span class="nav-link-text ms-1">Repairs</span>
+            </button>
+            <div class="collapse" id="submenu4" style="">
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ Request::is('repair') ? 'active bg-gradient-primary' : '' }}  "
+                        href="{{ url('repair') }}">
+                        <span class="nav-link-text ms-1">Repairs</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ Request::is('add-repair') ? 'active bg-gradient-primary' : '' }}  "
+                        href="{{ url('add-repair') }}">
+                        <span class="nav-link-text ms-1">Add Repair</span>
+                    </a>
+                </li>
+            </div>
+            <button data-bs-target="#submenu5" data-bs-toggle="collapse" aria-expanded="false"
+            class="btn btn-toggle text-white d-flex align-items-center collapsed">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">person</i>
+            </div>
+            <span class="nav-link-text ms-1">Repair parts</span>
+        </button>
+        <div class="collapse" id="submenu5" style="">
+            <li class="nav-item">
+                <a class="nav-link text-white {{ Request::is('part') ? 'active bg-gradient-primary' : '' }}  "
+                    href="{{ url('part') }}">
+                    <span class="nav-link-text ms-1">Repair parts</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('add-category') ? 'active bg-gradient-primary' : '' }}  "
-                    href="{{ url('add-category') }}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">view_in_ar</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Add Category</span>
+                <a class="nav-link text-white {{ Request::is('add_parts') ? 'active bg-gradient-primary' : '' }}  "
+                    href="{{ url('add_parts') }}">
+                    <span class="nav-link-text ms-1">Add Repair Parts</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('products') ? 'active bg-gradient-primary' : '' }} "
-                    href="{{ url('products') }} ">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">receipt_long</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Products</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('add-products') ? 'active bg-gradient-primary' : '' }}  "
-                    href="{{ url('add-products') }}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">view_in_ar</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Add Products</span>
-                </a>
-            </li>
+        </div>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('orders') ? 'active bg-gradient-primary' : '' }}  "
                     href="{{ url('orders') }}">
@@ -67,52 +145,6 @@
                     <span class="nav-link-text ms-1">Order</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('users') ? 'active bg-gradient-primary' : '' }}  "
-                    href="{{ url('users') }}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">person</i>
-                    </div>
-                    <span class="nav-link-text ms-1">User</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('service') ? 'active bg-gradient-primary' : '' }}  "
-                    href="{{ url('service') }}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">person</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Services</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('add-service') ? 'active bg-gradient-primary' : '' }}  "
-                    href="{{ url('add-service') }}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">person</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Add Services</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('repair') ? 'active bg-gradient-primary' : '' }}  "
-                    href="{{ url('repair') }}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">person</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Repairs</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ Request::is('add-repair') ? 'active bg-gradient-primary' : '' }}  "
-                    href="{{ url('add-repair') }}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">person</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Add Repair</span>
-                </a>
-            </li>
-
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
             </li>

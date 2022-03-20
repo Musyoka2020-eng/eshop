@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RepairController;
+use App\Http\Controllers\Admin\RepairpartController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Frontend\Cartcontroller;
 use App\Http\Controllers\Frontend\CheckoutController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\ViewrepairController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Models\Repairpart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +44,8 @@ Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'prod
 Route::get('my-orders', [UserController::class, 'index']);
 Route::get('my-orders2', [UserController::class, 'index2']);
 
+Route::get('userepair/{id}', [ViewrepairController::class, 'userview']);
+
 // search controller
 Route::get('product-list', [FrontendController::class, 'productlistAjax']);
 Route::post('searchproduct', [FrontendController::class, 'searchproduct']);
@@ -60,6 +64,11 @@ Route::post('add-to-wishlist', [WishlistController::class, 'add']);
 Route::post('delete-wishlist-item', [WishlistController::class, 'deleteitem']);
 Route::get('load-wishlist-count', [WishlistController::class, 'wishcount']);
 
+// Viewrepair Controller
+Route::get('repairs', [ViewrepairController::class, 'index']);
+Route::get('repair_list', [ViewrepairController::class, 'repairlistAjax']);
+Route::any('searchrepair', [ViewrepairController::class, 'searchrepair']);
+
 Route::middleware(['auth'])->group(function () {
     Route::get('cart', [Cartcontroller::class, 'viewcart']);
     Route::get('cart2', [Cartcontroller::class, 'viewcart2']);
@@ -68,13 +77,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('proceed-to-pay', [CheckoutController::class, 'razorpaycheck']);
 
     // Viewrepair Controller
-    Route::get('repairs', [ViewrepairController::class, 'index']);
-    Route::get('repair_list', [ViewrepairController::class, 'repairlistAjax']);
-    Route::any('searchrepair', [ViewrepairController::class, 'searchrepair']);
     Route::get('view-repair/{id}', [ViewrepairController::class, 'viewrepair']);
-
     Route::post('add-repairrate', [RaterepairsController::class, 'add']);
-
     Route::post('add-rating', [RatingController::class, 'add']);
 
     Route::get('add-review/{product_slug}/userreview', [ReviewController::class, 'add']);
@@ -117,6 +121,13 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('insert-service', [ServiceController::class, 'insert']);
     Route::get('edit-service/{id}', [ServiceController::class, 'edit']);
     Route::put('update.service/{id}', [ServiceController::class, 'update']);
+     
+    // Repairpart Routers
+    Route::get('part',[RepairpartController::class, 'index']);
+    Route::get('add_parts', [RepairpartController::class, 'add']);
+    Route::post('insert_parts', [RepairpartController::class, 'insert']);
+    Route::get('edit_part/{id}', [RepairpartController::class, 'edit']);
+    Route::post('update_part/{id}',[RepairpartController::class, 'update']);
 
     // Repair Controller
     Route::get('repair', [RepairController::class, 'index']);
@@ -146,3 +157,11 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('order', [DashboardController::class, 'complete']);
 
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
