@@ -53,6 +53,6 @@ class HomeController extends Controller
             'password' => Hash::make($request->new_password)
         ]);
 
-        return back()->with("status", "Password changed successfully!");
+        return view('home')->with("status", "Password changed successfully!");
     }
 }

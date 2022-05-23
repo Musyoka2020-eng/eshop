@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\User;
 use App\Models\Rating;
-use Illuminate\Http\Request;
+use App\Models\Review;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
     public function index()
     {
+        $typeuser = User::where('id', Auth::id())->first();
         $featured_products = Product::where('trending', '1')->take(15)->get();
         $rated_products = Rating::where('stars_rated','>=',' 1')->take(15)->get();
         $trending_category = Category::where('popular', '1')->where('status', '1')->take(15)->get();

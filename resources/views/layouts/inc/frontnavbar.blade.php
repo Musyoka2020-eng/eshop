@@ -63,7 +63,16 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{url('my-orders')}}"> <span><i class="fa-solid fa-list"></i></span>  My Orders</a>
+                                @if (Auth::user()->role_as === 1)
+                                <a class="dropdown-item" href="{{url('dashboard')}}"><span><i class="fa-solid fa-dashboard"></i></span>  Dashboard </a>
+
+                                @elseif (Auth::user()->role_as === 0)
                                 <a class="dropdown-item" href="{{url('user')}}"><span><i class="fa-solid fa-dashboard"></i></span>  Dashboard </a>
+                
+                                @else
+                                <a class="dropdown-item" href="{{route('login')}}"><span><i class="fa-solid fa-dashboard"></i></span>  Dashboard </a>
+
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();"><span><i class="fa-solid fa-sign-out"></i></span>
                                     {{ __('Logout') }}

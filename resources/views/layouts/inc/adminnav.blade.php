@@ -3,7 +3,7 @@
         <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title font-weight-normal" id="modal-title-default">Type your modal title</h6>
+                    <h6 class="modal-title font-weight-normal" id="modal-title-default">View/Edit Admin Profile</h6>
                     <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -11,57 +11,58 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <img class="rounded-circle mt-5"
+                            <img class="rounded-circle"
                                 src="{{ asset('assets/uploads/users/' . Auth::user()->image) }}" width="50"
                                 height="50" alt="Image not found"
                                 onerror="this.onerror=null;this.src={{ asset('assets/images/altimg.jpg') }};" />
-                            <span class="d-sm-inline d-none ml-3">{{ Auth::user()->name }}</span>
+                            <span class="d-sm-inline d-none ml-5">{{ Auth::user()->name." ".Auth::user()->lname }}</span>
                         </div>
                     </div>
+                    <hr>
                     <form>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="input-group input-group-outline my-3">
-                                    <label class="form-label">First Name</label>
-                                    <input type="email" class="form-control">
+                                <label class="form-label">First Name</label>
+                                <div class="input-group input-group-outline my-1">
+                                    <input type="text" value="{{ Auth::user()->name }}" name="fname" placeholder="Enter First Name" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="input-group input-group-outline my-3">
-                                    <label class="form-label">Last Name</label>
-                                    <input type="email" class="form-control">
+                                <label class="form-label">Last Name</label>
+                                <div class="input-group input-group-outline my-1">
+                                    <input type="text" value="{{ Auth::user()->lname }}" name="lname" placeholder="Enter Last Name" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="input-group input-group-outline my-3">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control">
+                                <label class="form-label">Email</label>
+                                <div class="input-group input-group-outline my-1">
+                                    <input type="email" value="{{ Auth::user()->email }}" name="email" placeholder="Enter your work email" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="input-group input-group-outline my-3">
-                                    <label class="form-label">Phone</label>
-                                    <input type="email" class="form-control">
+                                <label class="form-label">Phone</label>
+                                <div class="input-group input-group-outline my-1">
+                                    <input type="text" value="{{ Auth::user()->phone }}" name="phone" placeholder="Enter you telephone" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="input-group input-group-outline my-3">
-                                    <label class="form-label">City</label>
-                                    <input type="email" class="form-control">
+                                <label class="form-label">City</label>
+                                <div class="input-group input-group-outline my-1">
+                                    <input type="text" value="{{ Auth::user()->city }}" name="city" placeholder="Enter your current city" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="input-group input-group-outline my-3">
-                                    <label class="form-label">Country</label>
-                                    <input type="email" class="form-control">
+                                <label class="form-label">Country</label>
+                                <div class="input-group input-group-outline my-1">
+                                    <input type="text" value="{{ Auth::user()->country }}" name="country" placeholder="Enter the counrty name" class="form-control">
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row my-1">
                             <div class="col-md-6">
                                 <input type="file" name="image" class="form-control-file image">
                             </div>
