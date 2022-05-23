@@ -1,0 +1,152 @@
+* {
+    font-family: "Roboto", sans-serif;
+}
+.hcar {
+    height: 400px;
+    width: 250px;
+}
+.custom {
+    color: #06ebf3;
+    background-color: rgba(29, 26, 34, 0.548);
+    height: 200px;
+    margin: 0;
+    font-weight: 700;
+    font-size: large;
+    font-style: italic;
+}
+.b-example-divider {
+    flex-shrink: 0;
+    width: 1rem;
+    height: auto;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
+}
+div{
+    display: block;
+}
+main {
+    display: flex;
+    flex-wrap: nowrap;
+    height: auto;
+    height: -webkit-fill-available;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.tred {
+    height: 150px;
+    width: 250px;
+}
+.cartim {
+    height: 250px;
+    width: 250px;
+    margin-left: 70px;
+}
+.cartim2 {
+    height: 70px;
+    width: 70px;
+    margin-left: 70px;
+}
+.checkout-form label {
+    font-size: 12px;
+    font-weight: 700;
+}
+.checkout-form input {
+    font-size: 14px;
+    padding: 5px;
+    font-weight: 400;
+}
+.order-details label {
+    font-size: 14px;
+    font-weight: 700;
+}
+.order-details div {
+    font-size: 15px;
+}
+.checked {
+    color: #ffe400;
+}
+
+/* rating */
+.rating-css div {
+    color: #ffe400;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+#sidebar-nav {
+    width: 200px;
+}
+.goods{
+    top: 0;
+    position: fixed;
+}
+/* .fio{
+    background-color: rgba(98, 98, 165, 0.692);
+} */
+.rating-css input {
+    display: none;
+}
+.rating-css input + label {
+    font-size: 40px;
+    text-shadow: 1px 1px 0 #8f8420;
+    cursor: pointer;
+}
+.rating-css input:checked + label ~ label {
+    color: #b4afaf;
+}
+.rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+
+/* End of Star Rating */
+.search-bar {
+    width: 30%;
+    margin-left: 5%;
+}
+.ui-menu {
+    z-index: 3500 !important;
+}
+.whatsapp-chat {
+    bottom: 10px;
+    left: 10px;
+    position: fixed;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: #BA68C8;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+.pfooter{
+    padding-left: 20px;
+    padding-right: 20px;
+}
