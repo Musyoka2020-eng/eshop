@@ -169,7 +169,7 @@
                         <img class="rounded-circle" src="{{ asset('assets/uploads/users/' . Auth::user()->image) }}"
                             width="50" height="50" alt="Image not found"
                             onerror="this.onerror=null;this.src={{ asset('assets/images/altimg.jpg') }};" />
-                            <span class="d-sm-inline d-none">{{ Auth::user()->name }}</span>
+                            <span class="d-sm-inline d-none ml-3">{{ Auth::user()->name }}</span>
                         </div>
                     </div>
                         <form>
@@ -220,7 +220,7 @@
                                 <input type="file" name="image" class="form-control-file image">
                             </div>
                             <div class="col-md-6">
-                                <a href="{{ url('#') }}">change password </a>
+                                <a href="{{ url('change-password') }}">change password </a>
                             </div>
                         </div>
                         </form>
