@@ -98,6 +98,9 @@
                             <div class="col-md-6">
                                 <input type="file" name="image" class="form-control-file image">
                             </div>
+                            <div class="col-md-6">
+                                <a href="{{ url('change-password') }}">Change password</a>
+                            </div>
                         </div>
                         <div class="mt-5 text-left"><button class="btn btn-primary profile-button" type="submit">Save
                                 Profile</button>

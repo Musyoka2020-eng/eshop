@@ -1,10 +1,95 @@
+    <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+        aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title font-weight-normal" id="modal-title-default">Type your modal title</h6>
+                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="rounded-circle mt-5"
+                                src="{{ asset('assets/uploads/users/' . Auth::user()->image) }}" width="50"
+                                height="50" alt="Image not found"
+                                onerror="this.onerror=null;this.src={{ asset('assets/images/altimg.jpg') }};" />
+                            <span class="d-sm-inline d-none ml-3">{{ Auth::user()->name }}</span>
+                        </div>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">First Name</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">Phone</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">City</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group input-group-outline my-3">
+                                    <label class="form-label">Country</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="file" name="image" class="form-control-file image">
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{ url('change-password') }}">Change password</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-gradient-primary">Save changes</button>
+                    <button type="button" class="btn btn-link  ml-auto" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
         navbar-scroll="true">
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                    </li>
                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
                 </ol>
                 <h6 class="font-weight-bolder mb-0">Dashboard</h6>
@@ -19,18 +104,16 @@
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
                         <div class="dropdown">
-                            <a href="#" class="btn bg-gradient-secondary btn-icon btn-2 dropdown-toggle " data-bs-toggle="dropdown"
-                                id="navbarDropdownMenuLink2">
+                            <a href="#" class="btn bg-gradient-secondary btn-icon btn-2 dropdown-toggle "
+                                data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
                                 <i class="fa-solid fa-user fa-fade"></i>
                                 <span class="d-sm-inline d-none">{{ Auth::user()->name }}</span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                                 <li>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa-solid fa-id-card"></i>
-                                        <span class="d-sm-inline d-none">My Profile</span>
-
-                                    </a>
+                                    <a type="button" class="dropdown-item" data-bs-toggle="modal"
+                                        data-bs-target="#modal-default"><i class="fa-solid fa-id-card"></i>
+                                        <span class="d-sm-inline d-none">My Profile</span></a>
                                 </li>
                                 {{-- <li>
                                     <a class="dropdown-item" href="#">
@@ -38,15 +121,15 @@
                                     </a>
                                 </li> --}}
                                 <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                         <i class="fa-solid fa-right-from-bracket fa-shake"></i>
-                                         <span class="d-sm-inline d-none">Logout</span>
-                                     </a>
-                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                         @csrf
-                                     </form>
+                                        <i class="fa-solid fa-right-from-bracket fa-shake"></i>
+                                        <span class="d-sm-inline d-none">Logout</span>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
 
                                 </li>
                             </ul>
@@ -64,7 +147,8 @@
                     </li>
                     <li class="nav-item px-3 d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body p-0">
-                            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075"></i>
+                            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer fa-beat-fade"
+                                style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075"></i>
                         </a>
                     </li>
                     <li class="nav-item dropdown pe-2 d-flex align-items-center">
