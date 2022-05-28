@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
@@ -29,7 +31,14 @@ class ResetPasswordController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function authenticated()
     {
-            return redirect('/')->with('status','Password reset in successfully');
+        if(Auth::user()->role_as == '1') //1 = Admin Login
+        {
+            return redirect('dashboard')->with('status','Welcome to your dashboard');
+        }
+        elseif(Auth::user()->role_as == '0') // Normal or Default User Login
+        {
+            return redirect('/')->with('status','Logged in successfully');
+        }
     }
 
 }
