@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('address1')->nullable();
             $table->string('address2')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image')->default('../../public/assets/1646082895.jpg');
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('country')->nullable();

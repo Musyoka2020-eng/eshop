@@ -19,7 +19,9 @@
                         </div>
                     </div>
                     <hr>
-                    <form>
+                    <form action="{{ url('updateadminprofile') }}" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="form-label">First Name</label>
@@ -70,12 +72,12 @@
                                 <a href="{{ url('change-password') }}">Change password</a>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn bg-gradient-primary">Save changes</button>
+                    <button type="submit" class="btn bg-gradient-primary">Save changes</button>
                     <button type="button" class="btn btn-link  ml-auto" data-bs-dismiss="modal">Close</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>

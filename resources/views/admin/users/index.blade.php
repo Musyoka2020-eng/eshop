@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-   Admin:Users
+    Admin:Users
 @endsection
 
 @section('content')
@@ -17,18 +17,24 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Contact</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $item)
                         <tr>
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->name.' '.$item->lname}}</td>
-                            <td>{{$item->email}}</td>
-                            <td>{{$item->phone}}</td>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->name . ' ' . $item->lname }}</td>
+                            <td>{{ $item->email }}</td>
+                            <td>{{ $item->phone }}</td>
                             <td>
-                               <a href="{{url('view-users/'.$item->id)}}"  class="btn btn-primary btn-sm">View</a>
+                                <a href="{{ url('view-role/'. $item->id) }}" class="btn btn-block btn-light">
+                                    {{ $item->role_as == '0' ? 'Client' : 'Admin' }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{ url('view-users/' . $item->id) }}" class="btn btn-primary btn-sm">View</a>
                             </td>
                         </tr>
                     @endforeach
@@ -36,7 +42,7 @@
                 </tbody>
             </table>
         </div>
-    {{-- </div>
+        {{-- </div>
 
     <div class="card"> --}}
         <div class="card-header">
@@ -57,12 +63,12 @@
                 <tbody>
                     @foreach ($newuser as $item)
                         <tr>
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->name.' '.$item->lname}}</td>
-                            <td>{{$item->email}}</td>
-                            <td>{{$item->phone}}</td>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->name . ' ' . $item->lname }}</td>
+                            <td>{{ $item->email }}</td>
+                            <td>{{ $item->phone }}</td>
                             <td>
-                               <a href="{{url('view-users/'.$item->id)}}"  class="btn btn-primary btn-sm">View</a>
+                                <a href="{{ url('view-users/' . $item->id) }}" class="btn btn-primary btn-sm">View</a>
                             </td>
                         </tr>
                     @endforeach

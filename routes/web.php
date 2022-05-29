@@ -106,6 +106,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('/dashboard', 'Admin\FrontendController@index');
+    Route::put('updateadminprofile', [DashboardController::class, 'updateadmin']);
 
     //Category routes
     Route::get('categories', 'Admin\CategoryController@index');
@@ -151,10 +152,13 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin/view-order/{id}', [OrderController::class, 'view']);
     Route::put('update-order/{id}', [OrderController::class, 'updateorder']);
     Route::get('order-history', [OrderController::class, 'orderhistory']);
+    Route::get('order', [DashboardController::class, 'complete']);
 
+     // User
     Route::get('users', [DashboardController::class, 'users']);
     Route::get('view-users/{id}', [DashboardController::class, 'viewusers']);
-    Route::get('order', [DashboardController::class, 'complete']);
+    Route::get('view-role/{id}', [DashboardController::class, 'viewrole']);
+    Route::put('change_role/{id}',[DashboardController::class, 'changeuserrole']);
 
 });
 
