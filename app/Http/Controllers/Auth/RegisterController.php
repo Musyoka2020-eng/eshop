@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -75,12 +76,51 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+    // protected function create(array $data)
+    // {
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => Hash::make($data['password']),
+    //     ]);
+    // }
+    function register(Request $request){
+
+        $request->validate([
+           'name' => ['required', 'string', 'max:255'],
+           'lname' => ['required', 'string', 'max:255'],
+           'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+           'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-    }
+
+        /** Make avata */
+
+        $path = 'assets/uploads/users/';
+        $fontPath = public_path('font/Roboto-BoldItalic.ttf');
+        $char = strtoupper($request->name[0]);
+        $newAvatarName = rand(12,34353).time().'_avatar.png';
+        $dest = $path.$newAvatarName;
+
+        $createAvatar = makeAvatar($fontPath,$dest,$char);
+        $picture = $createAvatar == true ? $newAvatarName : '';
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->lname = $request->lname;
+        $user->email = $request->email;
+        // $user->role = 2;
+        $user->image = $picture;
+        $user->password = Hash::make($request->password);
+
+        if( $user->save() ){
+
+           return redirect('home')->with('success','You are now successfully registered');
+           
+        }else{
+
+            return redirect()->back()->with('error','Failed to register');
+        }
+
+   }
+
 }

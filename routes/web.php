@@ -41,11 +41,6 @@ Route::get('category', [FrontendController::class, 'category']);
 Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
 Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
-Route::get('my-orders', [UserController::class, 'index']);
-Route::get('my-orders2', [UserController::class, 'index2']);
-
-Route::get('userepair/{id}', [ViewrepairController::class, 'userview']);
-
 // search controller
 Route::get('product-list', [FrontendController::class, 'productlistAjax']);
 Route::post('searchproduct', [FrontendController::class, 'searchproduct']);
@@ -69,7 +64,7 @@ Route::get('repairs', [ViewrepairController::class, 'index']);
 Route::get('repair_list', [ViewrepairController::class, 'repairlistAjax']);
 Route::any('searchrepair', [ViewrepairController::class, 'searchrepair']);
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'isClient'])->group(function () {
     Route::get('cart', [Cartcontroller::class, 'viewcart']);
     Route::get('cart2', [Cartcontroller::class, 'viewcart2']);
     Route::get('checkout', [CheckoutController::class, 'index']);
@@ -96,10 +91,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('wishlist', [WishlistController::class, 'index']);
     Route::get('wishlist2', [WishlistController::class, 'index2']);
 
+    Route::get('my-orders', [UserController::class, 'index']);
+    Route::get('my-orders2', [UserController::class, 'index2']);
+
+    Route::get('userepair/{id}', [ViewrepairController::class, 'userview']);
+
     Route::get('myprofile/{id}', [UserController::class, 'viewprofile']);
     Route::get('user', [UserController::class, 'profile']);
     Route::put('updateprofile', [UserController::class, 'update']);
-
 });
 // CheckoutController
 
@@ -122,13 +121,13 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('insert-service', [ServiceController::class, 'insert']);
     Route::get('edit-service/{id}', [ServiceController::class, 'edit']);
     Route::put('update.service/{id}', [ServiceController::class, 'update']);
-     
+
     // Repairpart Routers
-    Route::get('part',[RepairpartController::class, 'index']);
+    Route::get('part', [RepairpartController::class, 'index']);
     Route::get('add_parts', [RepairpartController::class, 'add']);
     Route::post('insert_parts', [RepairpartController::class, 'insert']);
     Route::get('edit_part/{id}', [RepairpartController::class, 'edit']);
-    Route::post('update_part/{id}',[RepairpartController::class, 'update']);
+    Route::post('update_part/{id}', [RepairpartController::class, 'update']);
 
     // Repair Controller
     Route::get('repair', [RepairController::class, 'index']);
@@ -154,12 +153,11 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('order-history', [OrderController::class, 'orderhistory']);
     Route::get('order', [DashboardController::class, 'complete']);
 
-     // User
+    // User
     Route::get('users', [DashboardController::class, 'users']);
     Route::get('view-users/{id}', [DashboardController::class, 'viewusers']);
     Route::get('view-role/{id}', [DashboardController::class, 'viewrole']);
-    Route::put('change_role/{id}',[DashboardController::class, 'changeuserrole']);
-
+    Route::put('change_role/{id}', [DashboardController::class, 'changeuserrole']);
 });
 
 Auth::routes();
@@ -167,4 +165,3 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('change-password');
 Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('update-password');
-

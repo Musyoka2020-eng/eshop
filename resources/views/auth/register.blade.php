@@ -16,7 +16,7 @@ Register
                         @csrf
                         <div class="input-group mb-3">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                placeholder="Full name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                placeholder="First name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -28,6 +28,22 @@ Register
                                 </span>
                             @enderror
                         </div>
+
+                        <div class="input-group mb-3">
+                            <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname"
+                                placeholder="Last name" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                            @error('lname')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        
                         <div class="input-group mb-3">
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                 name="email"  placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
