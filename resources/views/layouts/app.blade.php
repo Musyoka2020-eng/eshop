@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Outlets') }}</title>
 
 
      <!-- Google Font: Source Sans Pro -->
@@ -21,10 +21,10 @@
 </head>
 <body >
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Outlets') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    {{-- <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -70,10 +70,10 @@
                                 </div>
                             </li>
                         @endguest
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
-        </nav> --}}
+        </nav>
         <main>
             @yield('content')
         </main>
@@ -81,9 +81,11 @@
 
     <!-- jQuery -->
 <script src="{{asset ('backend/plugins/jquery/jquery.min.js') }}"></script>
+{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+{{-- <script src="{{ asset('main.js') }}"></script> --}}
 <!-- Bootstrap 4 -->
 <script src="{{asset ('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{asset ('backend/dist/js/adminlte.min.js') }}"></script>
+<script src="{{asset ('backend/dist/js/adminlte.min.js') }}"></scrip>
 </body>
 </html>
