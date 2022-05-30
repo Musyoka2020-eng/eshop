@@ -52,13 +52,14 @@ class ViewrepairController extends Controller
         $ratings = Repairrating::where('prod_id', $id)->get();
         $rating_sum = Repairrating::where('prod_id', $id)->sum('stars_rated');
         $user_rating = Repairrating::where('prod_id', $id)->where('user_id', Auth::id())->first();
-        $review = Repairrating::where('prod_id', $id)->where('user_id', Auth::id())->get();
+        $review = Repairrating::where('prod_id', $id)->where('user_id', Auth::id())->first();
+        $review1 = Repairrating::where('prod_id', $id)->where('user_id', Auth::id())->get();
         if ($ratings->count() > 0) {
             $rating_value = $rating_sum / $ratings->count();
         } else {
             $rating_value = 0;
         }
-        return view('frontend.repairs.view', compact('repair', 'ratings', 'rating_sum', 'user_rating', 'rating_value', 'review'));
+        return view('frontend.repairs.view', compact('repair', 'ratings', 'rating_sum', 'user_rating', 'rating_value', 'review', 'review1'));
     }
 
     public function userview($id)

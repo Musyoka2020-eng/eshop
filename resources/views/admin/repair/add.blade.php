@@ -52,8 +52,8 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <label class="form-label">Total Price</label>
                         <div class="input-group input-group-outline my-3">
-                            <label class="form-label">Total Price</label>
                             <select class="form-control" id="total_price" name="total_price">
                                 @foreach ($services as $item)
                                     <option value="{{ $item->cost }}">{{ $item->cost . '  ' . '-' . '  ' . $item->serv_name }}
