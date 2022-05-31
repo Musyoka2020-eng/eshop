@@ -48,9 +48,9 @@
                     <span> <i class="fa-solid fa-toolbox fa-xl"></i></span> My repairs
                 </h5>
                 <p class="card-text">
-                    Complete: <span></span>
+                    Complete: <span>{{ $comprepairs->count() }}</span>
                     <br>
-                    Pending: <span></span>
+                    Pending: <span>{{ $pendrepairs->count() }}</span>
                 </p>
             </div>
         </div>

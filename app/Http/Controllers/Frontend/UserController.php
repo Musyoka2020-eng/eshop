@@ -7,6 +7,7 @@ use App\Models\Order;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Repair;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -46,8 +47,10 @@ class UserController extends Controller
         $typeuser = User::where('id', Auth::id())->first();
         $comporders = Order::where('status', '1')->where('user_id', Auth::id())->get();
         $pendorders = Order::where('status', '0')->where('user_id', Auth::id())->get();
+        $comprepairs = Repair::where('status', '1')->where('email', $typeuser->email)->get();
+        $pendrepairs = Repair::where('status', '0')->where('email', $typeuser->email)->get();
         $cash = Order::where('status', '0')->where('user_id', Auth::id())->sum('total_price');
-        return view('frontend.User.index', compact('comporders','pendorders','typeuser','cash'));
+        return view('frontend.User.index', compact('comporders','pendorders','typeuser','cash', 'comprepairs', 'pendrepairs'));
     }
     public function viewprofile($id)
     {
