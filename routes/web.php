@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RepairController;
 use App\Http\Controllers\Admin\RepairpartController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Frontend\Cartcontroller;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -46,6 +47,7 @@ Route::get('product-list', [FrontendController::class, 'productlistAjax']);
 Route::post('searchproduct', [FrontendController::class, 'searchproduct']);
 
 Auth::routes();
+Route::get('chat', [ChatController::class, 'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
