@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('meta_title');
             $table->string('meta_descrip');
+            $table->softDeletes();
             $table->string('meta_keywords');
             $table->timestamps();
         });

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('qty');
             $table->string('decription')->nullable();
             $table->string('status')->default('0');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->string('serv_name');
-            $table->string('serv_slug');
-            $table->string('cost');
-            $table->string('staff_id')->nullable();
-            $table->string('image')->nullable();
-            $table->string('status')->default('0');
-            $table->string('description');
+            $table->string('nickname')->nullable();
+            $table->tinyInteger('userid');
+            $table->tinyInteger('alert_when')->default('0');
+            $table->tinyInteger('block')->default('0');
+            $table->longText('sms')->nullable();
+            $table->string('uploads')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('chats');
     }
 };

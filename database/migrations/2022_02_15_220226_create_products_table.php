@@ -30,6 +30,7 @@ return new class extends Migration
             $table->mediumText('meta_title');
             $table->mediumText('meta_keywords');
             $table->mediumText('meta_description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

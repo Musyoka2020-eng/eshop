@@ -4,11 +4,12 @@ namespace App\Models;
 
 use App\Models\Service;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Repair extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $table = 'repairs';
     protected $fillable = [
         'prod_name',
