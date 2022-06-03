@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="{{ asset('chats/css/custom.css') }}">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script src="{{ asset('chats/js/jquery-3.6.0.min.js') }}" ></script>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
 </head>
 
 <body>
@@ -30,9 +33,11 @@
         @yield('content')
         @include('layouts.inc.chatsf.footer')
     </main>
-    <script src="{{ asset('chats/js/mdb.min.js') }}"></script>
-    <script src="{{ asset('chats/js/custom.js') }}"></script>
+    <script src="{{ asset('chats/js/mdb.min.js') }}" async defer></script>
 
+    <script src="{{ asset('chats/js/custom.js') }}"></script>
+    <!-- MDB -->
+    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script> --}}
 
     @yield('scripts')
 </body>

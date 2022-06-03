@@ -47,7 +47,9 @@ Route::get('product-list', [FrontendController::class, 'productlistAjax']);
 Route::post('searchproduct', [FrontendController::class, 'searchproduct']);
 
 Auth::routes();
-Route::get('chat', [ChatController::class, 'index']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('chat', [ChatController::class, 'index']);
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

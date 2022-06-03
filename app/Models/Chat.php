@@ -18,4 +18,9 @@ class Chat extends Model
         'sms',
         'uploads',
     ];
+
+    public function user()
+    {
+      return $this->belongsTo(User::class, 'userid', 'id');
+    }
 }
