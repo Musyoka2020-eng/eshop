@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['verified']);
+    }
+    
     public function index()
     {
         $orders = Order::where('user_id', Auth::id())->get();

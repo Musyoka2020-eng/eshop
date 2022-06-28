@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+    
     public function add($product_slug)
     {
         $product = Product::where('slug', $product_slug)->where('status', '0')->first();

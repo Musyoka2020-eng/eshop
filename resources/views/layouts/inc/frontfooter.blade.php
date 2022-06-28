@@ -13,10 +13,10 @@
   
       <!-- Right -->
       <div>
-        <a href="{{ url('chat') }}" class="me-4 text-reset btn btn-info btn-sm text-white">
+        {{-- <a href="{{ url('chat') }}" class="me-4 text-reset btn btn-info btn-sm text-white">
           {{-- <i class="fab fa-facebook-f"></i> --}}
-          chats
-        </a>
+          {{-- chats
+        </a> --}}
         <a href="" class="me-4 text-reset btn btn-info btn-sm text-white">
             {{-- <i class="fab fa-facebook-f"></i> --}}
             Subscribe

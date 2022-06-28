@@ -13,8 +13,15 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
-    public function index()
+
+    public function __construct()
     {
+        $this->middleware(['auth', 'verified']);
+    }
+    
+    public function index()
+    { 
+        
         $old_cartitems = Cart::where('user_id', Auth::id())->get();
         foreach ($old_cartitems as $item) 
         {

@@ -12,6 +12,12 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 class FrontendController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+    
+    
     public function index()
     {
         $todayorders = Order::where('status','1')->whereDate('created_at', '=', date('Y-m-d'))->sum('total_price');

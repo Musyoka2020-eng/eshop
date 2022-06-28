@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class RaterepairsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+    
     public function add(Request $request)
     {
         $stars_rated = $request->input('repair_rating');

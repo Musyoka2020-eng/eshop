@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class RatingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+    
     public function add(Request $request)
     {
         $stars_rated = $request->input('product_rating');
